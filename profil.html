@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScanAI</title>
+  </head>
+  <body>
+   
+
+
+    <nav class="navLanding">
+        <a href="index.html">
+            <img src="logoScanAI.png" class="logo" />
+        </a>
+        <ul class="ulNav">
+        <a href="auth/login.html"><li >Login</li></a>
+        <a href="auth/register.html"><li >Register</li></a>
+      </ul>
+    </nav>
+    <div class="containerTitle">
+        
+      <form id="FLogin" action="/login/" method="post">
+        <div class="containerForm">
+            <h1 class="mainTitle" id="loginTitle">
+                Profil
+             </h1>
+
+             <div class="ContInput">
+                <label for="username"></label>
+                <input type="text" class="btnLogin" placeholder="Username" name="username" >
+             </div>
+             <div class="ContInput">
+                <label for="email"></label>
+                <input type="email" class="btnLogin" placeholder="Email" name="email" >
+             </div>
+             <div class="ContInput">
+                <label for="password"></label>
+                <input type="password" class="btnLogin" placeholder="Password" name="password" >
+            </div>
+            <div class="ContInput">
+                <label for="Confpassword"></label>
+                <input type="password" class="btnLogin" placeholder="Confirm Password" name="Confpassword" >
+            </div>
+           
+            <button id="btnSubmite" type="submit">Confirmer</button>
+        </div>
+    </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../particles.js"></script>
+    <script>
+      particlesJS.load("particles-js", "particlesjs-config.json", function () {
+        console.log("callback - particles.js config loaded");
+      });
+    </script>
+  </body>
+</html>
