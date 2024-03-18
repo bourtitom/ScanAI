@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+   
+
+
     <nav class="navLanding">
-        <img src="logoScanAI.png" class="logo">
-        <ul class="ulNav">
-            <a href="#"><li>Login</li></a>
-            <a href="#"><li>Register</li></a>
-        </ul>
+      <img src="logoScanAI.png" class="logo" />
+      <ul class="ulNav">
+        <a href="#"><li>Login</li></a>
+        <a href="#"><li>Register</li></a>
+      </ul>
     </nav>
     <div class="containerTitle">
-        <h1>Instant Document Translation with ScanAI: Your Content Transformed in Seconds</h1>
+      <div id="particles-js"></div>
+      <h1 class="mainTitle" id="mainTitle">
+        Instant Document Translation with <span>ScanAI</span><br />
+        <div class="backTitle">Your Content Transformed in Seconds</div>
+      </h1>
     </div>
-</body>
+
+    <section class="section1">
+      <div class="containerBloc">
+        <div class="bloc"></div>
+        <div class="bloc"></div>
+        <div class="bloc"></div>
+        <div class="bloc"></div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <script src="particles.js"></script>
+    <script>
+      particlesJS.load("particles-js", "particlesjs-config.json", function () {
+        console.log("callback - particles.js config loaded");
+      });
+    </script>
+  </body>
 </html>

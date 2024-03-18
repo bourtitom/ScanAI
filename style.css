@@ -12,7 +12,7 @@ body {
     background-color: #090e16;
     font-family: 'Poppins';
     height: 100vh;
-    width: 100%
+    width: 100%;
 }
 
 .navLanding {
@@ -58,4 +58,48 @@ body {
 
 .ulNav li:hover::after {
     width: 100%; 
+}
+
+.containerTitle {
+    width: 100%;
+    height: 60vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainTitle {
+    margin-top: 50px;
+    font-size: 50px;
+}
+
+.mainTitle span {
+    color: #93d215;
+}
+
+.backTitle {
+    margin-left: 46px;
+    margin-top: 7px;
+}
+
+
+.section1 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerBloc {
+    height: 25%;
+    width: 25%;
+}
+
+#particles-js {
+    position: fixed;
+    top: 17%;
+    width: 100vw;
+    height: 100vh;
 }
