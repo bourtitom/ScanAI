@@ -7,9 +7,6 @@
     <title>Document</title>
   </head>
   <body>
-   
-
-
     <nav class="navLanding">
       <img src="logoScanAI.png" class="logo" />
       <ul class="ulNav">
@@ -18,35 +15,69 @@
       </ul>
     </nav>
     <div class="containerTitle">
-      <div id="particles-js"></div>
-      <h1 class="mainTitle" id="mainTitle">
-        Instant Document Translation with <span>ScanAI</span><br />
-        <div class="backTitle">Your Content Transformed in Seconds</div>
-      </h1>
+      <div class="containerAll">
+        <div id="particles-js"></div>
+        <h1 class="mainTitle" id="mainTitle">
+          Instant Document Translation with <span>ScanAI</span><br />
+          <div class="backTitle">Your Content Transformed in Seconds</div>
+        </h1>
+        <button class="shadow__btn">Try it now</button>
+      </div>
     </div>
 
     <section class="section1">
-      <div class="containerBloc">
-        <div class="bloc"></div>
-        <div class="bloc"></div>
-        <div class="bloc"></div>
-        <div class="bloc"></div>
+      <div class="parent" id="grid">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="div4"></div>
+        <div class="div5"></div>
+        <div class="div6"></div>
+        <div class="mouse-follower" id="mouseFollower"></div>
       </div>
     </section>
-
-
-
-
-
-
-
-
 
     <script src="particles.js"></script>
     <script>
       particlesJS.load("particles-js", "particlesjs-config.json", function () {
         console.log("callback - particles.js config loaded");
       });
+    </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const parent = document.querySelector(".parent");
+  const mouseFollower = document.querySelector(".mouse-follower");
+
+  parent.addEventListener("mouseenter", function() {
+    mouseFollower.style.display = "block";
+  });
+
+  parent.addEventListener("mouseleave", function() {
+    mouseFollower.style.display = "none";
+  });
+
+  document.addEventListener("mousemove", function(e) {
+    const parentRect = parent.getBoundingClientRect();
+    const mouseX = e.pageX;
+    const mouseY = e.pageY;
+
+    const parentLeft = parentRect.left + window.pageXOffset;
+    const parentTop = parentRect.top + window.pageYOffset;
+    const parentRight = parentRect.right + window.pageXOffset - mouseFollower.offsetWidth;
+    const parentBottom = parentRect.bottom + window.pageYOffset - mouseFollower.offsetHeight;
+
+    if (mouseX >= parentLeft && mouseX <= parentRight && mouseY >= parentTop && mouseY <= parentBottom) {
+      let adjustedMouseX = mouseX - parentLeft;
+      let adjustedMouseY = mouseY - parentTop;
+
+      mouseFollower.style.left = adjustedMouseX + "px";
+      mouseFollower.style.top = adjustedMouseY + "px";
+    }
+  });
+});
+
+
+
     </script>
   </body>
 </html>
