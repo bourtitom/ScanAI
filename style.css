@@ -90,7 +90,7 @@ body {
   justify-content: center;
   border-top: solid 1px #1d2734;
   z-index: 1 !important;
-  background-color: #090e16 !important;
+  background-color: #070b11 !important;
 }
 
 #particles-js {
@@ -101,10 +101,20 @@ body {
 }
 
 .div1, .div2, .div3, .div4, .div5, .div6 {
-    background-color: #090e16;
+    background-color: #070b11;
     border: solid 2px #1d2734;
     border-radius: 25px;
     z-index: 2 !important;
+    color: #a3a3a3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .gridTitle {
+    color: white;
   }
   
   .parent {
@@ -116,7 +126,7 @@ body {
     height: 58%;
     width: 85%;
     z-index: 1;
-    opacity: 0.5;
+    opacity: 0.9;
     position: relative; /* Ajout d'une position relative */
     overflow: hidden; /* Empêche le débordement du contenu hors de la classe parent */
     background-color: none;
@@ -178,4 +188,35 @@ element.style {
     justify-content: center;
     flex-direction: column;
     margin-bottom: 150px;
+  }
+
+  .section2 {
+    height: 100vh;
+    width: 100%;
+    background-color: #090e16;
+    border-top: solid 1px #1d2734;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  footer {
+    border-top: #1d2734 solid 1px;
+    padding: 40px 100px;
+    color: white;
+    background: #070b11;
+  }
+  
+  footer li {
+    float: left;
+    padding: 0 10px;
+    list-style: none;
+  }
+  
+  footer a {
+    color: white;
+  }
+  
+  footer p {
+    float: right;
   }
