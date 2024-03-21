@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScanAI</title>
+  </head>
+  <body>
+   
+
+
+    <nav class="navLanding">
+        <a href="index.html">
+            <img src="logoScanAI.png" class="logo" />
+        </a>
+        <ul class="ulNav">
+        <a href="auth/login.html"><li >Login</li></a>
+        <a href="auth/register.html"><li >Register</li></a>
+      </ul>
+    </nav>
+    <div class="containerTitle">
+        
+      <form id="FLogin" action="/login/" method="post">
+        <div class="containerFormCheck">
+            <h1 class="mainTitle" id="CheckTitle">
+                Check your account
+             </h1>
+
+             
+             <div id="myBox">
+              <input type="text" class="confirmationCode" name="confirmationCode" maxlength="1"  pattern="\d|[A-Za-z]" required>
+              <input type="text" class="confirmationCode" name="confirmationCode" maxlength="1"  pattern="\d|[A-Za-z]" required>
+              <input type="text" class="confirmationCode" name="confirmationCode" maxlength="1"  pattern="\d|[A-Za-z]" required>
+              <input type="text" class="confirmationCode" name="confirmationCode" maxlength="1"  pattern="\d|[A-Za-z]" required>
+              <input type="text" class="confirmationCode" name="confirmationCode" maxlength="1"  pattern="\d|[A-Za-z]" required>
+            </div>
+
+            <button id="btnSubmite" type="submit">Confirmer</button>
+        </div>
+    </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../particles.js"></script>
+    <script>
+      const inputs = document.querySelectorAll('#myBox .confirmationCode');
+      inputs.forEach((input, i) => {
+          input.addEventListener('keyup', (e) => {
+              if(e.target.value.length === e.target.maxLength) {
+                  const nextInput = inputs[i + 1];
+                  if(nextInput) {
+                      nextInput.focus();
+                  }
+              }
+          });
+        input.addEventListener('input', (e) => {
+            e.target.value = e.target.value.toUpperCase();
+        });
+      });
+  </script> 
+    <script>
+      particlesJS.load("particles-js", "particlesjs-config.json", function () {
+        console.log("callback - particles.js config loaded");
+      });
+    </script>
+  </body>
+</html>
