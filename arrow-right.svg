@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="svg1"
+   sodipodi:docname="ftline-line-arrow-end.svg"
+   viewBox="0 0 256 110"
+   sodipodi:version="0.32"
+   version="1.0"
+   y="0"
+   x="0"
+   inkscape:version="1.1-alpha (137f427, 2021-01-31)"
+   width="256"
+   height="110"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="base"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1016"
+     pagecolor="#ffffff"
+     snaptoguides="true"
+     inkscape:zoom="1.7366334"
+     inkscape:window-x="0"
+     borderopacity="1.0"
+     inkscape:cx="7.1978345"
+     inkscape:cy="101.34551"
+     inkscape:window-y="0"
+     inkscape:window-height="685"
+     inkscape:pageopacity="0.0"
+     showguides="true"
+     objecttolerance="10.0"
+     gridtolerance="10.0"
+     guidetolerance="10.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:current-layer="svg1" />
+  <path
+     id="path831"
+     style="color:#93d215;fill:#93d215;stroke-width:4.46143;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none"
+     d="m 185.58284,0.14675692 a 11.125236,11.181988 0 0 0 -7.24009,4.50773698 11.125236,11.181988 0 0 0 2.54664,15.6111051 l 31.49832,22.748355 H 11.125237 A 11.125236,11.181988 0 0 0 0,54.195942 11.125236,11.181988 0 0 0 11.125237,65.377929 H 211.85752 l -30.14243,24.783822 a 11.125236,11.181988 0 0 0 -1.57318,15.733419 11.125236,11.181988 0 0 0 15.65355,1.5812 l 56.1216,-46.125701 A 11.126349,11.183106 0 0 0 251.3608,43.607999 L 193.87462,2.1036039 a 11.125236,11.181988 0 0 0 -8.29178,-1.95684698 z" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>ftline line arrow end</dc:title>
+        <dc:date>2011-01-31T02:01:43</dc:date>
+        <dc:description>Originally uploaded by Danny Allen for OCAL 0.18 this icon is part of the flat theme</dc:description>
+        <dc:source>https://openclipart.org/detail/113191/ftline-line-arrow-end-by-anonymous</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Anonymous</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>flat</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>theme</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

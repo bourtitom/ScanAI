@@ -197,13 +197,14 @@ element.style {
     background-color: #090e16;
     border-top: solid 1px #1d2734;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
   }
 
   footer {
     border-top: #1d2734 solid 1px;
-    padding: 40px 100px;
+    padding:40px 100px;
     color: white;
     background: #070b11;
   }
@@ -342,4 +343,35 @@ input{
 }
 .social i{
   margin-right: 4px;
+}
+
+.containerImg {
+  padding: 20px 100px;
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.beforeAfter {
+  border-radius: 15px;
+  height: 600px;
+  width: 450px;
+}
+
+.containerLogin {
+  height: 50%;
+  width: 100%;
+}
+
+.loginPage {
+  height: 100vh;
+  width: 100%;
+}
+
+.registerPage {
+  height: 100vh;
+  width: 100%;
 }
