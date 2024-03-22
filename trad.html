@@ -9,77 +9,97 @@
   <body>
    
 
-
+    <!-- Barre de navigation -->
     <nav class="navLanding">
-        <a href="index.html">
-            <img src="logoScanAI.png" class="logo" />
-        </a>
-        <ul class="ulNav">
-        <a href="auth/login.html"><li >Login</li></a>
-        <a href="auth/register.html"><li >Register</li></a>
+      <!-- Logo avec lien vers la page d'accueil -->
+      <a href="index.html"><img src="logoScanAI.png" class="logo" /></a>
+      <!-- Liste des liens -->
+      <ul class="ulNav">
+        <!-- Lien vers la page de connexion -->
+        <a href="login.html"><li>Login</li></a>
+        <!-- Lien vers la page d'inscription -->
+        <a href="register.html"><li>Register</li></a>
       </ul>
     </nav>
-
+    <!-- Section de traduction -->
     <section id="sectionTrad">
-        <div class="boxT">
-            <div id="BloxPage">
-                <p>
-                    Drag & Drop
-                </p>
+      <!-- Boîte pour l'élément de glisser-déposer -->
+      <div class="boxT">
+        <div id="BloxPage">
+          <p>
+            Drag & Drop
+          </p>
+        </div>
+      </div>
+      <!-- Boîte pour le formulaire de traduction -->
+      <div class="boxT">
+        <!-- Titre principal -->
+        <h1 class="mainTitle" id="tradTitle">
+          Translate Your Scan
+        </h1>
+        <!-- Formulaire de traduction -->
+        <form id="FormTrad" action="/trad/" method="get">
+          <!-- Sélecteur de langue d'origine -->
+          <div id="DofSelect">
+            <div>
+              <label for="langue-select"></label>
+              <select name="language" class="lselect" id="langue-select">
+                <option value="">Choose Language Origine</option>
+                <option value="FR">French</option>
+                <option value="EN">English</option>
+                <option value="KR">Korean</option>
+              </select>
             </div>
-        </div>
-        <div class="boxT">
-    
-                <h1 class="mainTitle" id="tradTitle">
-                    Translate Your Scan
-                 </h1>
- 
-                 <form id="FormTrad" action="/trad/" method="get">
-                    <div id="DofSelect">
-                        <div>
-                            <label for="langue-select"></label>
-    
-                            <select name="language" class="lselect" id="langue-select">
-                            <option value="">Choose Language Origine</option>
-                            <option value="FR">French</option>
-                            <option value="EN">English</option>
-                            <option value="KR">Korean</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="langue-select2"></label>
-    
-                            <select name="language" class="lselect" id="langue-select2">
-                            <option value="">Choose Translate Language</option>
-                            <option value="FR">French</option>
-                            <option value="EN">English</option>
-                            <option value="KR">Korean</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-
-                    <button id="btnSubmite" type="submit">Translate</button>
-                </form>
-        </div>
+            <!-- Sélecteur de langue de traduction -->
+            <div>
+              <label for="langue-select2"></label>
+              <select name="language" class="lselect" id="langue-select2">
+                <option value="">Choose Translate Language</option>
+                <option value="FR">French</option>
+                <option value="EN">English</option>
+                <option value="KR">Korean</option>
+              </select>
+            </div>
+          </div>
+          <!-- Bouton de soumission du formulaire -->
+          <button id="btnSubmite" type="submit">Translate</button>
+        </form>
+      </div>
     </section>
 
 
 
 
+    <!-- Pied de page -->
+    <footer>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-md-12'>
+            <ul>
+              <!-- Liens de navigation du pied de page -->
+              <li><a href='#'>Terms</a></li>
+              <li><a href='#'>Privacy</a></li>
+              <li><a href='#'>Contact</a></li>
+              <li><a href='#'></a></li>
+              <!-- Message de droits d'auteur -->
+              <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
 
 
 
-
-
-
-    <script src="../particles.js"></script>
-    <script>
-      particlesJS.load("particles-js", "particlesjs-config.json", function () {
-        console.log("callback - particles.js config loaded");
-      });
-    </script>
+  <!-- Inclusion du script pour les particules -->
+  <script src="../particles.js"></script>
+  <!-- Script JavaScript pour charger la configuration des particules -->
+  <script>
+    particlesJS.load("particles-js", "particlesjs-config.json", function () {
+      console.log("callback - particles.js config loaded");
+    });
+  </script>
   </body>
 </html>

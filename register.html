@@ -4,85 +4,93 @@
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>ScanAI</title>
   </head>
   <body>
+    <!-- Barre de navigation -->
     <nav class="navLanding">
+      <!-- Logo avec lien vers la page d'accueil -->
       <a href="index.html"><img src="logoScanAI.png" class="logo" /></a>
+      <!-- Liste des liens -->
       <ul class="ulNav">
-        <a href="./login.html"><li>Login</li></a>
-        <a href="./register.html"><li>Register</li></a>
+        <!-- Lien vers la page de connexion -->
+        <a href="login.html"><li>Login</li></a>
+        <!-- Lien vers la page d'inscription -->
+        <a href="register.html"><li>Register</li></a>
       </ul>
     </nav>
-      <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-      </div>
-      <form style="height: 650px;">
-        <h3>Register Here</h3>
+   <!-- Arrière-plan -->
+   <div class="background">
+    <!-- Formes de fond -->
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <!-- Formulaire d'inscription -->
+  <form style="height: 650px;">
+    <h3>Register Here</h3>
+    <label for="email">Email</label>
+    <input type="text" placeholder="Enter your mail" id="email" />
+    <label for="password" id="elementChange">Password</label>
+    <input type="password" placeholder="Enter your password" id="password">
+    <label for="passwordConfirm" id="passwordConfirmChange">Password Confirm</label>
+    <input type="password" placeholder="Repeat the password" id="passwordConfirm" />
+    <button class="btnLogin">Register</button>
+    <!-- Options de connexion avec des comptes sociaux -->
+    <div class="social">
+      <div class="go"><i class="fab fa-google"></i> Google</div>
+      <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+    </div>
+    <!-- Lien pour rediriger vers la page de connexion -->
+    <a href="login.html" style="color: white;">You dont have an account ? Register</a>
+  </form>
+   <!-- Script JavaScript -->
+   <script>
+    // Sélection des éléments nécessaires
+    const elementChange = document.getElementById("elementChange");
+    const inputVal = document.getElementById("password");
+    const passwordConfirm = document.getElementById("passwordConfirm");
+    const innerPassConf = document.getElementById("passwordConfirmChange");
 
-        <label for="email">Email</label>
-        <input type="text" placeholder="Enter your mail" id="email" />
-
-        <label for="password" id="elementChange">Password</label>
-        <input type="password" placeholder="Enter your password" id="password">
-
-        <label for="passwordConfirm" id="passwordConfirmChange">Password Confirm</label>
-        <input type="password" placeholder="Repeat the password" id="passwordConfirm" />
-
-        <button class="btnLogin">Register</button>
-        <div class="social">
-          <div class="go"><i class="fab fa-google"></i> Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-        </div>
-        <a href="login.html" style="color: white;">You dont have an account ? Register</a>
-      </form>
-      <script>
-const elementChange = document.getElementById("elementChange");
-const inputVal = document.getElementById("password");
-const passwordConfirm = document.getElementById("passwordConfirm");
-const innerPassConf = document.getElementById("passwordConfirmChange");
-
-function verifPasswordConfirm(passwordConfirm) {
-  if (passwordConfirm.value === inputVal.value) {
-    innerPassConf.innerHTML = "Les mot de passes correspondent";
-    innerPassConf.style.color = "#93d215";
-    
-  } else if (passwordConfirm.value == 0) {
-    innerPassConf.innerHTML = "Password Confirm";
-    innerPassConf.style.color = "white";
-
-  } else {
-    innerPassConf.innerHTML = "Les mot de passes ne correspondent pas";
-    innerPassConf.style.color = "red"
-  }
-}
-
-function checkPasswordStrength(password) {
-    if (password.length >= 8) {
-      elementChange.innerHTML = "Mot de passe fort";
-      elementChange.style.color = "#93d215";
+    // Fonction pour vérifier si les mots de passe correspondent
+    function verifPasswordConfirm(passwordConfirm) {
+      if (passwordConfirm.value === inputVal.value) {
+        innerPassConf.innerHTML = "Les mots de passe correspondent";
+        innerPassConf.style.color = "#93d215";
+      } else if (passwordConfirm.value == 0) {
+        innerPassConf.innerHTML = "Password Confirm";
+        innerPassConf.style.color = "white";
+      } else {
+        innerPassConf.innerHTML = "Les mots de passe ne correspondent pas";
+        innerPassConf.style.color = "red";
+      }
     }
-    else if (password.length >= 6) {
-      elementChange.innerHTML = "Mot de passe moyen";
-      elementChange.style.color = "yellow";
-    }
-    else if (password.length > 0) {
-      elementChange.innerHTML = "Mot de passe faible";
-      elementChange.style.color = "red";
-    } else {
-      elementChange.innerHTML = "Password";
-      elementChange.style.color = "white";
-    }
-}
 
-passwordConfirm.addEventListener("input", function() {
-    verifPasswordConfirm(this);
-});
+    // Fonction pour vérifier la force du mot de passe
+    function checkPasswordStrength(password) {
+      if (password.length >= 8) {
+        elementChange.innerHTML = "Mot de passe fort";
+        elementChange.style.color = "#93d215";
+      } else if (password.length >= 6) {
+        elementChange.innerHTML = "Mot de passe moyen";
+        elementChange.style.color = "yellow";
+      } else if (password.length > 0) {
+        elementChange.innerHTML = "Mot de passe faible";
+        elementChange.style.color = "red";
+      } else {
+        elementChange.innerHTML = "Password";
+        elementChange.style.color = "white";
+      }
+    }
 
-inputVal.addEventListener("input", function() {
-    checkPasswordStrength(this.value);
-});
-      </script>
+    // Événement d'entrée pour le champ de confirmation du mot de passe
+    passwordConfirm.addEventListener("input", function() {
+      verifPasswordConfirm(this);
+    });
+
+    // Événement d'entrée pour le champ de mot de passe
+    inputVal.addEventListener("input", function() {
+      checkPasswordStrength(this.value);
+    });
+  </script>
   </body>
 </html>

@@ -7,63 +7,86 @@
     <title>ScanAI</title>
   </head>
   <body>
-   
-
-
-    <nav class="navLanding">
-        <a href="index.html">
-            <img src="logoScanAI.png" class="logo" />
-        </a>
-        <ul class="ulNav">
-        <a href="auth/login.html"><li >Login</li></a>
-        <a href="auth/register.html"><li >Register</li></a>
+     <!-- Barre de navigation -->
+     <nav class="navLanding">
+      <!-- Logo avec lien vers la page d'accueil -->
+      <a href="index.html"><img src="logoScanAI.png" class="logo" /></a>
+      <!-- Liste des liens -->
+      <ul class="ulNav">
+        <!-- Lien vers la page de connexion -->
+        <a href="login.html"><li>Login</li></a>
+        <!-- Lien vers la page d'inscription -->
+        <a href="register.html"><li>Register</li></a>
       </ul>
     </nav>
-    <div class="containerTitle">
-        
-      <form id="FLogin" action="/login/" method="post">
-        <div class="containerForm">
-            <h1 class="mainTitle" id="loginTitle">
-                Profil
-             </h1>
-
-             <div class="ContInput">
-                <label for="username"></label>
-                <input type="text" class="btnLogin" placeholder="Username" name="username" >
-             </div>
-             <div class="ContInput">
-                <label for="email"></label>
-                <input type="email" class="btnLogin" placeholder="Email" name="email" >
-             </div>
-             <div class="ContInput">
-                <label for="password"></label>
-                <input type="password" class="btnLogin" placeholder="Password" name="password" >
-            </div>
-            <div class="ContInput">
-                <label for="Confpassword"></label>
-                <input type="password" class="btnLogin" placeholder="Confirm Password" name="Confpassword" >
-            </div>
-           
-            <button id="btnSubmite" type="submit">Confirmer</button>
-        </div>
-    </form>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-    <script src="../particles.js"></script>
+  <!-- Arrière-plan -->
+  <div class="background">
+    <!-- Formes de fond -->
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+        <!-- Formulaire d'inscription -->
+        <form style="height: 650px;">
+          <h3>Your Profil</h3>
+          <label for="email">Email</label>
+          <input type="text" placeholder="exemple@gmail.com" id="email" />
+          <label for="password" id="elementChange">Password</label>
+          <input type="password" placeholder="Enter your password" id="password">
+          <label for="passwordConfirm" id="passwordConfirmChange">Password Confirm</label>
+          <input type="password" placeholder="Repeat the password" id="passwordConfirm" />
+          <button class="btnLogin">Update</button>
+          <!-- Lien pour rediriger vers la page de connexion -->
+          <a href="login.html" style="color: white;">You dont have an account ? Register</a>
+        </form>
+    <!-- Script JavaScript -->
     <script>
-      particlesJS.load("particles-js", "particlesjs-config.json", function () {
-        console.log("callback - particles.js config loaded");
+      // Sélection des éléments nécessaires
+      const elementChange = document.getElementById("elementChange");
+      const inputVal = document.getElementById("password");
+      const passwordConfirm = document.getElementById("passwordConfirm");
+      const innerPassConf = document.getElementById("passwordConfirmChange");
+
+      // Fonction pour vérifier si les mots de passe correspondent
+      function verifPasswordConfirm(passwordConfirm) {
+        if (passwordConfirm.value === inputVal.value) {
+          innerPassConf.innerHTML = "Les mots de passe correspondent";
+          innerPassConf.style.color = "#93d215";
+        } else if (passwordConfirm.value == 0) {
+          innerPassConf.innerHTML = "Password Confirm";
+          innerPassConf.style.color = "white";
+        } else {
+          innerPassConf.innerHTML = "Les mots de passe ne correspondent pas";
+          innerPassConf.style.color = "red";
+        }
+      }
+
+      // Fonction pour vérifier la force du mot de passe
+      function checkPasswordStrength(password) {
+        if (password.length >= 8) {
+          elementChange.innerHTML = "Mot de passe fort";
+          elementChange.style.color = "#93d215";
+        } else if (password.length >= 6) {
+          elementChange.innerHTML = "Mot de passe moyen";
+          elementChange.style.color = "yellow";
+        } else if (password.length > 0) {
+          elementChange.innerHTML = "Mot de passe faible";
+          elementChange.style.color = "red";
+        } else {
+          elementChange.innerHTML = "Password";
+          elementChange.style.color = "white";
+        }
+      }
+
+      // Événement d'entrée pour le champ de confirmation du mot de passe
+      passwordConfirm.addEventListener("input", function() {
+        verifPasswordConfirm(this);
+      });
+
+      // Événement d'entrée pour le champ de mot de passe
+      inputVal.addEventListener("input", function() {
+        checkPasswordStrength(this.value);
       });
     </script>
+
   </body>
 </html>

@@ -4,86 +4,109 @@
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ScanAI</title>
   </head>
   <body>
+    <!-- Barre de navigation -->
     <nav class="navLanding">
+      <!-- Logo avec lien vers la page d'accueil -->
       <a href="index.html"><img src="logoScanAI.png" class="logo" /></a>
+      <!-- Liste des liens -->
       <ul class="ulNav">
-        <a href="auth/login.html"><li>Login</li></a>
-        <a href="auth/register.html"><li>Register</li></a>
+        <!-- Lien vers la page de connexion -->
+        <a href="login.html"><li>Login</li></a>
+        <!-- Lien vers la page d'inscription -->
+        <a href="register.html"><li>Register</li></a>
       </ul>
     </nav>
-    <div class="containerTitle">
-      <div class="containerAll">
-        <div id="particles-js"></div>
-        <h1 class="mainTitle" id="mainTitle">
-          Instant Document Translation with <span>ScanAI</span><br />
-          <div class="backTitle">Your Content Transformed in Seconds</div>
-        </h1>
-        <button class="shadow__btn">Try it now</button>
-      </div>
+   <!-- Conteneur pour le titre principal -->
+   <div class="containerTitle">
+    <div class="containerAll">
+      <!-- Effet de particules -->
+      <div id="particles-js"></div>
+      <!-- Titre principal -->
+      <h1 class="mainTitle" id="mainTitle">
+        Instant Document Translation with <span>ScanAI</span><br />
+        <!-- Sous-titre -->
+        <div class="backTitle">Your Content Transformed in Seconds</div>
+      </h1>
+      <!-- Bouton d'action -->
+      <button class="shadow__btn">Try it now</button>
     </div>
+  </div>
 
+
+
+    <!-- Section avec grille de présentation -->
     <section class="section1">
       <div class="parent" id="grid">
-        <div class="div1"><h2 class="gridTitle">Facile à utiliser</h2><br>ScanAI offre une interface conviviale qui permet de traduire vos documents rapidement et simplement.</div>
-        <div class="div2"><h2 class="gridTitle">Traduction instantanée</h2><br>Avec ScanAI, vous pouvez obtenir des traductions instantanées de vos documents dès qu'ils sont importés dans notre système.</div>
-        <div class="div3"><h2 class="gridTitle">Précision garantie</h2><br>Notre technologie de pointe garantit des traductions précises et fiables pour tous vos besoins linguistiques.</div>
-        <div class="div4"><h2 class="gridTitle">Sécurité des données</h2><br>Vos documents sont sécurisés avec nous. Nous prenons la confidentialité de vos données très au sérieux.</div>
-        <div class="div5"><h2 class="gridTitle">Support multi-langue</h2><br>ScanAI prend en charge un large éventail de langues, ce qui vous permet de traduire des documents dans différentes langues.</div>
-        <div class="div6"><h2 class="gridTitle">Accessible partout</h2><br>Que vous soyez au bureau, à la maison ou en déplacement, ScanAI est accessible depuis n'importe quel appareil connecté à Internet.</div>
+        <!-- Contenu de la grille -->
+        <div class="div1"><h2 class="gridTitle">Easy to use</h2><br>ScanAI offers a user-friendly interface that allows you to translate your documents quickly and easily.</div>
+        <div class="div2"><h2 class="gridTitle">Instant translation</h2><br>With ScanAI, you can get instant translations of your documents as soon as they are uploaded to our system.</div>
+        <div class="div3"><h2 class="gridTitle">Guaranteed accuracy</h2><br>Our state-of-the-art technology ensures accurate and reliable translations for all your language needs.</div>
+        <div class="div4"><h2 class="gridTitle">Data security</h2><br>Your documents are secure with us. We take the privacy of your data very seriously.</div>
+        <div class="div5"><h2 class="gridTitle">Multi-language support</h2><br>ScanAI supports a wide range of languages, allowing you to translate documents in different languages.</div>
+        <div class="div6"><h2 class="gridTitle">Accessible anywhere</h2><br>Whether you're in the office, at home, or on the go, ScanAI is accessible from any device connected to the internet.</div>
+        <!-- Suiveur de la souris -->
         <div class="mouse-follower" id="mouseFollower"></div>
       </div>
     </section>
-
-    <section class="section2">
+      <!-- Pied de page -->
       <footer>
         <div class='container'>
         <div class='row'>
             <div class='col-md-12'>
+                <!-- Liens de navigation dans le pied de page -->
                 <ul>
                     <li><a href='#'>Terms</a></li>
                     <li><a href='#'>Privacy</a></li>
                     <li><a href='#'>Contact</a></li>
                     <li><a href='#'></a></li>
-                    <p>&copy; Copyright 2015</p>
+                    <!-- Droits d'auteur -->
+                    <p>&copy; 2024 ScanAI. All rights reserved.</p>
                 </ul>
             </div>
         </div>
         </div>
     </footer>
-    </section>
-
+  
+    <!-- Chargement de la bibliothèque de particules -->
     <script src="particles.js"></script>
     <script>
+      // Chargement de la configuration des particules
       particlesJS.load("particles-js", "particlesjs-config.json", function () {
         console.log("callback - particles.js config loaded");
       });
     </script>
     <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // Sélection des éléments nécessaires
   const parent = document.querySelector(".parent");
   const mouseFollower = document.querySelector(".mouse-follower");
 
+  // Gestionnaire d'événements pour afficher le suiveur de la souris
   parent.addEventListener("mouseenter", function() {
     mouseFollower.style.display = "block";
   });
 
+  // Gestionnaire d'événements pour masquer le suiveur de la souris
   parent.addEventListener("mouseleave", function() {
     mouseFollower.style.display = "none";
   });
 
+  // Gestionnaire d'événements pour suivre la souris dans la zone parent
   document.addEventListener("mousemove", function(e) {
     const parentRect = parent.getBoundingClientRect();
     const mouseX = e.pageX;
     const mouseY = e.pageY;
 
+    // Calcul des limites de la zone parent
     const parentLeft = parentRect.left + window.pageXOffset;
     const parentTop = parentRect.top + window.pageYOffset;
     const parentRight = parentRect.right + window.pageXOffset - mouseFollower.offsetWidth;
     const parentBottom = parentRect.bottom + window.pageYOffset - mouseFollower.offsetHeight;
 
+    // Mise à jour de la position du suiveur de la souris si la souris est à l'intérieur de la zone parent
     if (mouseX >= parentLeft && mouseX <= parentRight && mouseY >= parentTop && mouseY <= parentBottom) {
       let adjustedMouseX = mouseX - parentLeft;
       let adjustedMouseY = mouseY - parentTop;
@@ -93,9 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-
-
-
     </script>
+
   </body>
 </html>

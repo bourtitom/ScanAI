@@ -60,7 +60,7 @@ body {
 
 .containerTitle {
   width: 100%;
-  height: 100vh;
+  height: 72vh;
   color: white;
   display: flex;
   align-items: center;
@@ -262,7 +262,6 @@ element.style {
 
 form{
   margin-top: 70px;
-    height: 520px;
     width: 400px;
     background-color: rgba(255, 255, 255, 0.018);
     position: absolute;
@@ -289,7 +288,6 @@ form h3{
     text-align: center;
     color: white;
 }
-
 
 label{
     display: block;
@@ -345,241 +343,176 @@ input{
   margin-right: 4px;
 }
 
-
-
-
-/* Page Login : style login */
-
-#FLogin{
-    width: 25%;
-}
-.containerForm {
-    margin-top: 40%;
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border: solid 1px #93d215;
-    border-radius: 10px;
-    box-shadow: 0 0 .1rem #fff,
-    0 0 .1rem #fff,
-    0 0 1rem #93d215,
-    0 0 0.8rem #93d215,
-    0 0 1.8rem #93d215,
-    inset 0 0 1.3rem #93d215; 
-
-}
-#loginTitle {
-    font-size: 40px;    
-    color: #fff;
-    margin-bottom: 10%;
-}
-.btnLogin
-{
-    width: 100%;
-    height: 40px;
-    background-color: #090e16;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10%;
-    border: none;
-    transition: background-color 0.3s ease;
-    border-bottom: solid 2px #93d215;
-}
-.btnLogin:focus {
-    outline:  none;
-}
-.ContInput{
-    width: 80%;
-}
-
-#forgot{
-    color: #93d215;
-    margin-top: 10%;
-    cursor: pointer;
-}
-#fcont{
-    font-size: 13px;
-}
-
-#btnSubmite{
-    width: 30%;
-    height: 40px;
-    font-size: 20px;
-    background-color: #93d215;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10% 0;
-    border: none;
-}
-
-
-
 /* Page Check Code : style check code */
 #CheckTitle{
-    font-size: 30px;    
-    color: #fff;
-    margin-bottom: 10%;
+  font-size: 30px;    
+  color: #fff;
+  margin-bottom: 10%;
 
 }
 .containerFormCheck {
-    margin-top: 10%;
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
 }
 
+#btnSubmite{
+  width: 40%;
+  height: 40px;
+  background-color: #93d215;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20% 0 0 0;
+  border: none;
+}
 #myBox{
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 
 }
 #myBox input{
-    text-align: center;
-    font-size: 35px;
-    width: 15%;
-    height: 80px;
-    border: solid 1px #93d215;
-    border-radius: 10px;
-    box-shadow: 0 0 .1rem #fff,
-    0 0 .05rem #fff,
-    0 0 0.5rem #93d215,
-    0 0 0.4rem #93d215,
-    0 0 1.2rem #93d215,
-    inset 0 0 1.3rem #93d215; 
+  text-align: center;
+  font-size: 35px;
+  width: 15%;
+  height: 80px;
+  border: solid 1px #93d215;
+  border-radius: 10px;
+  box-shadow: 0 0 .1rem #fff,
+  0 0 .05rem #fff,
+  0 0 0.5rem #93d215,
+  0 0 0.4rem #93d215,
+  0 0 1.2rem #93d215,
+  inset 0 0 1.3rem #93d215; 
 }
 #myBox input:focus {
-    outline:  none;
+  outline:  none;
 }
-
 
 
 /* Page Trad Page : style Trade Page */
 
 #BloxPage{
-    width: 50%;
-    height: 80%;
-    border: solid 1px #93d215;
-    border-radius: 10px;
-    box-shadow: 0 0 .1rem #fff,
-    0 0 .05rem #fff,
-    0 0 0.5rem #93d215,
-    0 0 0.4rem #93d215,
-    0 0 1.2rem #93d215,
-    inset 0 0 1.3rem #93d215; 
+  width: 50%;
+  height: 80%;
+  border: solid 1px #93d215;
+  border-radius: 10px;
+  box-shadow: 0 0 .1rem #fff,
+  0 0 .05rem #fff,
+  0 0 0.5rem #93d215,
+  0 0 0.4rem #93d215,
+  0 0 1.2rem #93d215,
+  inset 0 0 1.3rem #93d215; 
 }
 
 #sectionTrad{
-    display: flex;
+  display: flex;
 }
 #BloxPage{
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
 .boxT{
-    width: 50%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  width: 50%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .lselect{
-    width: 100%;
-    height: 40px;
-    background-color: #090e16;
-    color: white;
-    border: solid 1px #93d215;
-    border-radius: 10px;
-    box-shadow: 0 0 .1rem #fff,
-    0 0 .02rem #fff,
-    0 0 0.2rem #93d215,
-    0 0 0.1rem #93d215,
-    0 0 1rem #93d215,
-    inset 0 0 1.3rem #93d215; 
-    outline: none;
+  width: 100%;
+  height: 40px;
+  background-color: #090e16;
+  color: white;
+  border: solid 1px #93d215;
+  border-radius: 10px;
+  box-shadow: 0 0 .1rem #fff,
+  0 0 .02rem #fff,
+  0 0 0.2rem #93d215,
+  0 0 0.1rem #93d215,
+  0 0 1rem #93d215,
+  inset 0 0 1.3rem #93d215; 
+  outline: none;
 }
 #FormTrad{
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 #DofSelect{
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 #tradTitle{
-    font-size: 30px;    
-    color: #fff;
-    margin-bottom: 10%;
+  font-size: 30px;    
+  color: #fff;
+  margin-bottom: 10%;
 }
 
 
 /** Page abonnement : style abonnement */
 .SectionAbo{
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
 }
 .logoArt{
-    width: 30%;
-    margin: 20% 0;
+  width: 30%;
+  margin: 20% 0;
 
 }
 #AboTitle{
-    font-size: 30px;    
-    color: #fff;
-    margin-bottom: 4%;
+  font-size: 30px;    
+  color: #fff;
+  margin-bottom: 4%;
 }
 .containerAbo{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
 }
 .ContAbo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 25%;
-    border: solid 1px #93d215;
-    border-radius: 10px;
-    color: #fff;
-    box-shadow: 0 0 .1rem #fff,
-    0 0 .02rem #fff,
-    0 0 0.2rem #93d215,
-    0 0 0.1rem #93d215,
-    0 0 1rem #93d215,
-    inset 0 0 1.3rem #93d215; 
-    outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+  border: solid 1px #93d215;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 0 .1rem #fff,
+  0 0 .02rem #fff,
+  0 0 0.2rem #93d215,
+  0 0 0.1rem #93d215,
+  0 0 1rem #93d215,
+  inset 0 0 1.3rem #93d215; 
+  outline: none;
 }
 
 .btnABO{
-    width: 40%;
-    height: 40px;
-    background-color: #93d215;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10% 0;
-    border: none;
+  width: 40%;
+  height: 40px;
+  background-color: #93d215;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10% 0;
+  border: none;
+}
+
+footer{
+  margin-top: 5%;
+}

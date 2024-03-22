@@ -4,35 +4,51 @@
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>ScanAI</title>
   </head>
   <body>
+    <!-- Barre de navigation -->
     <nav class="navLanding">
+      <!-- Logo avec lien vers la page d'accueil -->
       <a href="index.html"><img src="logoScanAI.png" class="logo" /></a>
+      <!-- Liste des liens -->
       <ul class="ulNav">
-        <a href="./login.html"><li>Login</li></a>
-        <a href="./register.html"><li>Register</li></a>
+        <!-- Lien vers la page de connexion -->
+        <a href="login.html"><li>Login</li></a>
+        <!-- Lien vers la page d'inscription -->
+        <a href="register.html"><li>Register</li></a>
       </ul>
     </nav>
-      <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-      </div>
-      <form>
-        <h3>Login Here</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" />
+<!-- Arrière-plan -->
+<div class="background">
+  <!-- Formes de fond -->
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" />
+<!-- Formulaire de connexion -->
+<form>
+  <!-- Titre du formulaire -->
+  <h3>Login Here</h3>
 
-        <button class="btnLogin">Log In</button>
-        <div class="social">
-          <div class="go"><i class="fab fa-google"></i> Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-        </div>
-        <a href="register.html" style="color: white;">Have an account ? Login</a>
-      </form>
+  <!-- Champ pour le nom d'utilisateur -->
+  <label for="username">Username</label>
+  <input type="text" placeholder="Email or Phone" id="username" />
+
+  <!-- Champ pour le mot de passe -->
+  <label for="password">Password</label>
+  <input type="password" placeholder="Password" id="password" />
+
+  <!-- Bouton de connexion -->
+  <button class="btnLogin">Log In</button>
+  
+  <!-- Options de connexion avec des comptes sociaux -->
+  <div class="social">
+    <div class="go"><i class="fab fa-google"></i> Google</div>
+    <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+  </div>
+</form>
+
   </body>
 </html>
