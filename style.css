@@ -168,6 +168,9 @@ element.style {
     transition-property: box-shadow;
     z-index: 1;
   }
+  .shadow__btn a{
+    color: white;
+  }
   
   .shadow__btn {
     background: #93d215;
