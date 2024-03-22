@@ -9,12 +9,12 @@
   <body>
     <section class="loginPage">
     <nav class="navLanding">
-      <a href="index.html"><img src="logoScanAI.png" class="logo" /></a>
+      <a href="index.php"><img src="logoScanAI.png" class="logo" /></a>
       <ul class="ulNav">
-        <a href="login.html"><li>Login</li></a>
-        <a href="register.html"><li>Register</li></a>
-        <a href="abo.html"><li>Subscribe</li></a>
-        <a href="profil.html"><li>Profile</li></a>
+        <a href="login.php"><li>Login</li></a>
+        <a href="register.php"><li>Register</li></a>
+        <a href="abo.php"><li>Subscribe</li></a>
+        <a href="profil.php"><li>Profile</li></a>
       </ul>
     </nav>
       <div class="background">
@@ -35,7 +35,7 @@
           <div class="go"><i class="fab fa-google"></i> Google</div>
           <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
         </div>
-        <a href="register.html" style="color: white;">Have an account ? Login</a>
+        <a href="register.php" style="color: white;">Have an account ? Login</a>
       </form>
     </section>
 
@@ -48,7 +48,7 @@
                     <li><a href='#'>Privacy</a></li>
                     <li><a href='#'>Contact</a></li>
                     <li><a href='#'></a></li>
-                    <p>&copy; Copyright 2015</p>
+                    <p>&copy; Copyright 2024</p>
                 </ul>
             </div>
         </div>

@@ -8,12 +8,12 @@
   </head>
   <body>
     <nav class="navLanding">
-      <a href="index.html"><img src="logoScanAI.png" class="logo" /></a>
+      <a href="index.php"><img src="logoScanAI.png" class="logo" /></a>
       <ul class="ulNav">
-        <a href="login.html"><li>Login</li></a>
-        <a href="register.html"><li>Register</li></a>
-        <a href="abo.html"><li>Subscribe</li></a>
-        <a href="profil.html"><li>Profile</li></a>
+        <a href="login.php"><li>Login</li></a>
+        <a href="register.php"><li>Register</li></a>
+        <a href="abo.php"><li>Subscribe</li></a>
+        <a href="profil.php"><li>Profile</li></a>
       </ul>
     </nav>
     <div class="containerTitle">
@@ -23,7 +23,7 @@
           Instant Document Translation with <span>ScanAI</span><br />
           <div class="backTitle">Your Content Transformed in Seconds</div>
         </h1>
-        <button class="shadow__btn"><a href="login.html" style="color: white;">Try it now</a></button>
+        <button class="shadow__btn"><a href="login.php" style="color: white;">Try it now</a></button>
       </div>
     </div>
 
@@ -42,7 +42,7 @@
     <section class="section2">
       <div class="containerImg">
          <img src="ex1.png" class="beforeAfter">
-         <img src="arrow-right.svg" class="arrow" style="color: #93d215;">
+         <img src="arrow-right.svg" class="arrow" style="color: #93cf13;">
          <img src="ex2.png" class="beforeAfter">
       </div>
     </section>
@@ -55,7 +55,7 @@
                   <li><a href='#'>Privacy</a></li>
                   <li><a href='#'>Contact</a></li>
                   <li><a href='#'></a></li>
-                  <p>&copy; Copyright 2015</p>
+                  <p>&copy; Copyright 2024</p>
               </ul>
           </div>
       </div>

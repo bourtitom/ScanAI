@@ -10,10 +10,10 @@
    
      <!-- Barre de navigation -->
      <nav class="navLanding">
-      <a href="login.html"><li>Login</li></a>
-      <a href="register.html"><li>Register</li></a>
-      <a href="abo.html"><li>Subscribe</li></a>
-      <a href="profil.html"><li>Profile</li></a>
+      <a href="login.php"><li>Login</li></a>
+      <a href="register.php"><li>Register</li></a>
+      <a href="abo.php"><li>Subscribe</li></a>
+      <a href="profil.php"><li>Profile</li></a>
     </nav>
 
    <!-- Conteneur de titre et de formulaire -->
