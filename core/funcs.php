@@ -36,21 +36,37 @@ function secureRegistration($email, $password)
                 // Exécution de la requête.
                 $stmt->execute();
 
-                // Si tout se passe bien, retourne vrai.
-                return true;
+                // Récupère l'ID de l'utilisateur nouvellement créé.
+                $userId = $pdo->lastInsertId();
+
+                // Si tout se passe bien, retourne l'ID de l'utilisateur.
+                return [
+                    'status' => true,
+                    'id' => $userId
+                ];
             } catch (PDOException $e) {
                 // Gestion des erreurs liées à la base de données.
-                return "Erreur Interne lors de l'inscription";
+                return [
+                    'status' => false,
+                    'message' => "Erreur Interne lors de l'inscription"
+                ];
             }
         } else {
             // Le mot de passe ne répond pas aux exigences de sécurité.
-            return "Le mot de passe renseigné ne correspond pas aux critères requis";
+            return [
+                'status' => false,
+                'message' => "Le mot de passe renseigné ne correspond pas aux critères requis"
+            ];
         }
     } else {
         // L'adresse e-mail n'est pas valide.
-        return "Adresse e-mail incorrecte";
+        return [
+            'status' => false,
+            'message' => "Adresse e-mail incorrecte"
+        ];
     }
 }
+
 
 /*
  * Fonction pour connecter un utilisateur existant.
@@ -83,17 +99,92 @@ function secureLogin($email, $password)
 
         // Vérification de l'existence de l'utilisateur et de la validité du mot de passe.
         if ($user && password_verify($password, $user['password'])) {
-            // Si les informations sont correctes, retourne vrai.
-            return true;
+            // Au lieu de retourner simplement vrai, retourne les informations de l'utilisateur.
+            // On ne retourne pas directement le mot de passe pour des raisons de sécurité.
+            return [
+                'status' => true,
+                'id' => $user['id'],
+                'email' => $user['email']
+            ];
         } else {
             // Informations incorrectes, connexion échouée.
-            return "Échec de la connexion, vérifiez votre mot de passe ou votre adresse e-mail ";
+            return [
+                'status' => false,
+                'message' => "Échec de la connexion, vérifiez votre mot de passe ou votre adresse e-mail"
+            ];
         }
     } catch (PDOException $e) {
         // Gestion des erreurs liées à la base de données.
-        return "Erreur de connexion à la base de données";
+        return [
+            'status' => false,
+            'message' => "Erreur de connexion à la base de données"
+        ];
     }
 }
+
+
+
+/*
+ * Fonction pour ajouter des tokens à un utilisateur.
+ * 
+ * @param int $amount Nombre de tokens à ajouter.
+ * @param int $userId Identifiant de l'utilisateur.
+ * @return mixed Retourne true en cas de succès, un message d'erreur sinon.
+ */
+function addTokens($amount, $userId)
+{
+    global $pdo; // Utilisation de l'objet PDO global pour la connexion à la base de données.
+
+    try {
+        // Mise à jour du nombre de jetons pour l'utilisateur spécifié.
+        $sql = "UPDATE users SET tokens = tokens + :amount WHERE id = :userId";
+        $stmt = $pdo->prepare($sql);
+
+        // Liaison des paramètres à la requête.
+        $stmt->bindParam(':amount', $amount, PDO::PARAM_INT);
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+
+        // Exécution de la requête.
+        $stmt->execute();
+
+        return true;
+    } catch (PDOException $e) {
+        // Gestion des erreurs liées à la base de données.
+        return "Erreur lors de l'ajout de jetons";
+    }
+}
+
+/*
+ * Fonction pour retirer des tokens d'un utilisateur.
+ * 
+ * @param int $amount Nombre de jetons à retirer.
+ * @param int $userId Identifiant de l'utilisateur.
+ * @return mixed Retourne true en cas de succès, un message d'erreur sinon.
+ */
+function removeToken($amount, $userId)
+{
+    global $pdo; // Utilisation de l'objet PDO global pour la connexion à la base de données.
+
+    try {
+        // Mise à jour du nombre de jetons pour l'utilisateur spécifié.
+        $sql = "UPDATE users SET tokens = tokens - :amount WHERE id = :userId";
+        $stmt = $pdo->prepare($sql);
+
+        // Liaison des paramètres à la requête.
+        $stmt->bindParam(':amount', $amount, PDO::PARAM_INT);
+        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+
+        // Exécution de la requête.
+        $stmt->execute();
+
+        return true;
+    } catch (PDOException $e) {
+        // Gestion des erreurs liées à la base de données.
+        return "Erreur lors du retrait de jetons";
+    }
+}
+
+
 
 
 ?>

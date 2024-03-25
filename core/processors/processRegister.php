@@ -1,35 +1,29 @@
 <?php 
-
 require_once('../funcs.php');
 
-// Vérifie si la méthode de la requête est POST et si les champs email, password et passwordConfirm sont définis.
-if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'], $_POST['password'], $_POST['passwordConfirm']))
-{
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'], $_POST['password'], $_POST['passwordConfirm'])) {
 
-    if($_POST['password'] == $_POST['passwordConfirm'])
-    {
-        $registerResponse = secureRegistration(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']));
-        if($registerResponse === true)
-        {
+    if ($_POST['password'] === $_POST['passwordConfirm']) {
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+        $registerResponse = secureRegistration($email, $password);
+
+        if ($registerResponse['status'] === true) {
+            // Enregistrement réussi, initialise la session de l'utilisateur.
             $_SESSION['user'] = [
-
                 'status' => "connected",
-                'email' => htmlspecialchars($_POST['emailid'])
+                'id' => $registerResponse['id'],
+                'email' => $email
             ];
             header('Location: ../../profil.php');
+        } else {
+            // Si l'enregistrement échoue, affiche le message d'erreur.
+            // Utiliser $registerResponse['message'] pour informer l'utilisateur du problème.
         }
-        else{
-            // Si l'enregistrement échoue, MESSAGE ERREUR
-        }
+    } else {
+        // Les mots de passe ne correspondent pas, affiche un message d'erreur.
     }
-    else{
-                // Les mots de passe ne correspondent pas. 
-    }
-
-
-
-}
-else{
-        // Si la méthode n'est pas POST ou si tous les champs requis ne sont pas définis,
+} else {
+    // Si la méthode n'est pas POST ou si tous les champs requis ne sont pas définis, affiche un message d'erreur.
 }
 ?>
