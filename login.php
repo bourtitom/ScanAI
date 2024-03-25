@@ -1,3 +1,8 @@
+
+<?php 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,14 +26,14 @@
         <div class="shape"></div>
         <div class="shape"></div>
       </div>
-      <form>
+      <form action="core/processors/processLogin.php" method="POST">
         <h3>Login Here</h3>
 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" />
+        <label for="username">Email</label>
+        <input type="text" name="email" placeholder="Email or Phone" id="username" />
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" />
+        <input type="password" name="password" placeholder="Password" id="password" />
 
         <button class="btnLogin">Log In</button>
         <div class="social">

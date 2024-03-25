@@ -1,3 +1,9 @@
+
+<?php 
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +15,7 @@
   <body>
     <section class="registerPage">
     <nav class="navLanding">
-      <?php  if   ?>
+      
       <a href="index.php"><img src="logoScanAI.png" class="logo" /></a>
       <ul class="ulNav">
         <a href="login.php"><li>Login</li></a>
@@ -22,7 +28,7 @@
         <div class="shape"></div>
         <div class="shape"></div>
       </div>
-      <form style="height: 650px;">
+      <form style="height: 650px;" method="POST" action="core/processors/processRegister.php">
         <h3>Register Here</h3>
 
         <label for="email">Email</label>
