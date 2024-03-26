@@ -79,3 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <?php 
 $content = ob_get_clean();
 require 'layout.php';
+
+
+require_once('core/funcs.php');
+
