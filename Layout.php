@@ -16,6 +16,12 @@
        
         <a href="index.php"><li>Home</li></a>
         <a href="abo.php"><li>Subscribe</li></a>
+        <?php if (isset($_SESSION['user']) == 'connected') {
+          echo '<a href="Scanai.php"><li>ScanAI</li></a>';
+        }else{
+          
+        } ?>
+
         <?php 
         if(!isset($_SESSION['user'])){
           echo '
@@ -29,8 +35,7 @@
           </span>
           </li></a> ';
           echo '<a id="ContAcc" href="profil.php"><li id="AccPdp"><img class="pdp" src="pdpTom.png" alt="photo de profil">
-          </li></a> ';
-       
+          </li></a> ';       
         }
         ?>
       </ul>

@@ -1,6 +1,8 @@
 <?php
 ob_start();
 ?>
+
+?>
   <!-- Arrière-plan -->
   <div class="background">
     <!-- Formes de fond -->
@@ -12,7 +14,10 @@ ob_start();
         <!-- Formulaire d'inscription -->
         <form >
           <h3>Your Profil</h3>
-          <label for="email">Email</label>
+          <label for="email"><?php
+           echo $_SESSION['user']['email']; 
+           
+           ?></label>
           <input type="text" placeholder="exemple@gmail.com" id="email" />
           <label for="password" id="elementChange">Password</label>
           <input type="password" placeholder="Enter your password" id="password">
