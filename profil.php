@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="styleRes.css" >
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ScanAI</title>
-  </head>
-  <body>
-     <!-- Barre de navigation -->
-     <nav class="navLanding">
-      <a id="ContLogo" href="index.php"><img src="logoScanAI.png" class="logo" /></a>
-      <ul class="ulNav">
-        <a href="login.php"><li>Login</li></a>
-        <a href="register.php"><li>Register</li></a>
-        <a href="abo.php"><li>Subscribe</li></a>
-        <a href="profil.php"><li>Profile</li></a>
-      </ul>
-    </nav>
+<?php
+ob_start();
+?>
   <!-- Arrière-plan -->
   <div class="background">
     <!-- Formes de fond -->
@@ -38,20 +20,11 @@
           <input type="password" placeholder="Repeat the password" id="passwordConfirm" />
           <button class="btnLogin">Update</button>
           <!-- Lien pour rediriger vers la page de connexion -->
-          <a href="login.php" style="color: white;">You dont have an account ? Register</a>
+          <a href="logout.php" style="color: white;">Your leave ? logout</a>
         </form>
         </section>
 
-        <footer>
-      
-      <ul>
-          <li><a href='#'>Terms</a></li>
-          <li><a href='#'>Privacy</a></li>
-          <li><a href='#'>Contact</a></li>
-      </ul>
-      <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
-
-</footer>
+ 
     <!-- Script JavaScript -->
     <script>
       // Sélection des éléments nécessaires
@@ -101,6 +74,6 @@
         checkPasswordStrength(this.value);
       });
     </script>
-
-  </body>
-</html>
+<?php 
+$content = ob_get_clean();
+require 'layout.php';

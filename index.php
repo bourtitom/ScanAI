@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="styleRes.css" >
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <nav class="navLanding">
-      <a id="ContLogo" href="index.php"><img src="logoScanAI.png" class="logo" /></a>
-      <ul class="ulNav">
-        <a href="login.php"><li>Login</li></a>
-        <a href="register.php"><li>Register</li></a>
-        <a href="abo.php"><li>Subscribe</li></a>
-        <a href="profil.php"><li>Profile</li></a>
-      </ul>
-    </nav>
+<?php
+ob_start();
+?>
     <div class="containerTitle">
       <div class="containerAll">
         <div id="particles-js"></div>
@@ -49,16 +33,6 @@
       <button class="shadow__btn"><a href="login.php" style="color: white;">Try it now</a></button>
 
     </section>
-    <footer>
-      
-              <ul>
-                  <li><a href='#'>Terms</a></li>
-                  <li><a href='#'>Privacy</a></li>
-                  <li><a href='#'>Contact</a></li>
-              </ul>
-              <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
-  
-  </footer>
 
     <script src="particles.js"></script>
     <script>
@@ -102,5 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     </script>
-  </body>
-</html>
+<?php 
+$content = ob_get_clean();
+require 'layout.php';

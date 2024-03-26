@@ -19,9 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['email'], $_POST['passw
         } else {
             // Si l'enregistrement échoue, affiche le message d'erreur.
             // Utiliser $registerResponse['message'] pour informer l'utilisateur du problème.
+            var_dump($registerResponse);
         }
     } else {
         // Les mots de passe ne correspondent pas, affiche un message d'erreur.
+
     }
 } else {
     // Si la méthode n'est pas POST ou si tous les champs requis ne sont pas définis, affiche un message d'erreur.

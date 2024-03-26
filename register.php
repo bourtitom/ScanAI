@@ -1,29 +1,6 @@
-
-<?php 
-
-
+<?php
+ob_start();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="styleRes.css" >
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-  </head>
-  <body>
-  <nav class="navLanding">
-      <a id="ContLogo" href="index.php"><img src="logoScanAI.png" class="logo" /></a>
-      <ul class="ulNav">
-        <a href="login.php"><li>Login</li></a>
-        <a href="register.php"><li>Register</li></a>
-        <a href="abo.php"><li>Subscribe</li></a>
-        <a href="profil.php"><li>Profile</li></a>
-      </ul>
-    </nav>
 
     <section class="registerPage">
   
@@ -35,13 +12,13 @@
         <h3>Register Here</h3>
 
         <label for="email">Email</label>
-        <input type="text" placeholder="Enter your mail" id="email" />
+        <input type="text" placeholder="Enter your mail" name="email" id="email" />
 
         <label for="password" id="elementChange">Password</label>
-        <input type="password" placeholder="Enter your password" id="password">
+        <input type="password" placeholder="Enter your password" name="password" id="password">
 
         <label for="passwordConfirm" id="passwordConfirmChange">Password Confirm</label>
-        <input type="password" placeholder="Repeat the password" id="passwordConfirm" />
+        <input type="password" placeholder="Repeat the password" name="passwordConfirm" id="passwordConfirm" />
 
         <button class="btnLogin">Register</button>
         <div class="social">
@@ -112,5 +89,6 @@ inputVal.addEventListener("input", function() {
     checkPasswordStrength(this.value);
 });
       </script>
-  </body>
-</html>
+<?php 
+$content = ob_get_clean();
+require 'layout.php';

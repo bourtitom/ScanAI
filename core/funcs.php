@@ -22,6 +22,7 @@ function secureRegistration($email, $password)
         // Vérifie si le mot de passe est assez fort selon les critères définis.
         if (isStrongPassword($password)) {
             try {
+                
                 // Préparation de la requête SQL pour insérer le nouvel utilisateur.
                 $sql = "INSERT INTO users (email, password, last_connexion, date_registered) VALUES (:email, :password, NOW(), NOW())";
                 $stmt = $pdo->prepare($sql);
@@ -38,7 +39,6 @@ function secureRegistration($email, $password)
 
                 // Récupère l'ID de l'utilisateur nouvellement créé.
                 $userId = $pdo->lastInsertId();
-
                 // Si tout se passe bien, retourne l'ID de l'utilisateur.
                 return [
                     'status' => true,
