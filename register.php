@@ -8,15 +8,15 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleRes.css" >
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
   </head>
   <body>
-    <section class="registerPage">
-    <nav class="navLanding">
-      
-      <a href="index.php"><img src="logoScanAI.png" class="logo" /></a>
+  <nav class="navLanding">
+      <a id="ContLogo" href="index.php"><img src="logoScanAI.png" class="logo" /></a>
       <ul class="ulNav">
         <a href="login.php"><li>Login</li></a>
         <a href="register.php"><li>Register</li></a>
@@ -24,11 +24,14 @@
         <a href="profil.php"><li>Profile</li></a>
       </ul>
     </nav>
+
+    <section class="registerPage">
+  
       <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
       </div>
-      <form style="height: 650px;" method="POST" action="core/processors/processRegister.php">
+      <form  method="POST" action="core/processors/processRegister.php">
         <h3>Register Here</h3>
 
         <label for="email">Email</label>
@@ -49,20 +52,15 @@
       </form>
     </section>
 
-    <footer>
-      <div class='container'>
-      <div class='row'>
-          <div class='col-md-12'>
+     <footer>
+      
               <ul>
                   <li><a href='#'>Terms</a></li>
                   <li><a href='#'>Privacy</a></li>
                   <li><a href='#'>Contact</a></li>
-                  <li><a href='#'></a></li>
-                  <p>&copy; Copyright 2024</p>
               </ul>
-          </div>
-      </div>
-      </div>
+              <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
+  
   </footer>
 
 

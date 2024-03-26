@@ -1,0 +1,70 @@
+@media (max-width: 720px) {
+  
+    .navLanding {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+      }
+    #ContLogo{
+        width: 30%;
+    }
+     
+    .logo{
+        width: 100%;
+        height: 100%;
+    }
+    .ulNav{
+        justify-content: center;
+    }
+      .containerTitle{
+        margin-top: 10%;
+      }
+      
+      .parent{
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .background{
+        top: 80%;
+      }
+      form{
+        top: 80%;
+      }
+
+      .containerImg{
+        flex-direction: column;
+      }
+      .arrow{
+        transform: rotate(90deg);
+
+      }
+      .beforeAfter {
+        width: 70%;
+      }
+
+      .SectionAbo{
+        flex-direction: column;
+        align-items: center;
+        
+      }
+      .ContAbo{
+        width: 50%;
+        margin: 4%;
+        }
+      .loginPage, .registerPage, .YourProfil {
+        width: 100%;
+        margin-bottom: 150%;
+    }
+      footer{
+        flex-direction: column;
+        align-items: center;
+      }
+      footer p {
+        margin-top: 4%;
+      }
+      footer ul{
+        width: 80%;
+      }
+}

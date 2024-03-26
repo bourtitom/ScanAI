@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleRes.css" >
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ScanAI</title>
@@ -43,23 +45,15 @@
 
   <!-- Pied de page -->
   <footer>
-    <div class='container'>
-      <div class='row'>
-        <div class='col-md-12'>
-          <ul>
-            <!-- Liens de navigation du pied de page -->
-            <li><a href='#'>Terms</a></li>
-            <li><a href='#'>Privacy</a></li>
-            <li><a href='#'>Contact</a></li>
-            <li><a href='#'></a></li>
-            <!-- Message de droits d'auteur -->
-            <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+      
+      <ul>
+          <li><a href='#'>Terms</a></li>
+          <li><a href='#'>Privacy</a></li>
+          <li><a href='#'>Contact</a></li>
+      </ul>
+      <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
 
+</footer>
 
 
 

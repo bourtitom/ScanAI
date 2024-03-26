@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root{
+  --colorPrincipal:#93cf13;
+  --colorSecondaire:#fff;
+  --SizeFontTitleP:3rem;
+  --SizeFontNav:1rem;
+  --SizeSousTitle:1.5rem;
+  --SizeText:1rem;
+  --Littleborder:0.1rem;
+}
 * {
   margin: 0;
   padding: 0;
@@ -11,8 +20,6 @@
 body {
   background-color: #090e16;
   font-family: "Poppins";
-  height: 100vh;
-  width: 100%;
 }
 
 .navLanding {
@@ -21,17 +28,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: #1d2734 1px solid;
+  border-bottom: #1d2734 var(--Littleborder) solid;
 }
 
 .logo {
-  height: 120px;
-  width: 120px;
+  height: 50%;
+  width: 50%;
 }
 
 .ulNav {
   width: 100%;
-  color: white;
+  color: var(--colorSecondaire);
   display: flex;
   justify-content: flex-end;
   gap: 55px;
@@ -39,9 +46,10 @@ body {
 }
 
 .ulNav li {
-  color: white;
+  color: var(--colorSecondaire);
   position: relative;
   overflow: hidden;
+  font-size: var(--SizeFontNav);
 }
 
 .ulNav li::after {
@@ -50,7 +58,7 @@ body {
   left: 0;
   bottom: 0;
   width: 0;
-  border-bottom: solid 2px #93cf13;
+  border-bottom: solid 2px var(--colorPrincipal);
   transition: width 0.3s ease;
 }
 
@@ -60,44 +68,42 @@ body {
 
 .containerTitle {
   width: 100%;
-  height: 83vh;
-  color: white;
+  color: var(--colorSecondaire);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 10% 0;
 }
 
 .mainTitle {
   margin-bottom: 60px;
-  font-size: 50px;
+  font-size: var(--SizeFontTitleP);
+  text-align: center;
 }
 
 .mainTitle span {
-  color: #93cf13;
+  color: var(--colorPrincipal);
 }
 
-.backTitle {
-  margin-left: 46px;
-  margin-top: 7px;
-}
+
 
 .section1 {
-  height: 100vh;
+  padding: 3% 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: solid 1px #1d2734;
+  border-top: solid var(--Littleborder) #1d2734;
   z-index: 1 !important;
   background-color: #070b11 !important;
 }
 
 #particles-js {
   position: absolute;
-  top: 17%;
+  top: 25%;
   width: 100%;
-  height: 100vh;
+  height: 50%;
 }
 
 .div1, .div2, .div3, .div4, .div5, .div6 {
@@ -112,10 +118,12 @@ body {
     flex-direction: column;
     padding: 20px;
     opacity: 0.7;
+    font-size: var(--SizeText);
   }
 
   .gridTitle {
-    color: white;
+    color: var(--colorSecondaire);
+    font-size: var(--SizeSousTitle);
   }
   
   .parent {
@@ -124,7 +132,6 @@ body {
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 12px;
-    height: 58%;
     width: 85%;
     z-index: 1;
     opacity: 0.9;
@@ -138,8 +145,8 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: rgb(255, 255, 255);
-    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, #93cf13 50%, rgba(255, 255, 255, 1) 100%);
+    background: var(--colorSecondaire);
+    background: radial-gradient(circle, var(--colorSecondaire) 0%, var(--colorPrincipal) 50%, var(--colorSecondaire) 100%);
     display: none;
     z-index: 0;
     filter: blur(50px); /* Ajustez la valeur de flou selon vos préférences */
@@ -147,7 +154,9 @@ body {
     transform: translate(-50%, -50%); /* Centrer l'élément */
   }
   
-  
+  .UnderTitle{
+    font-size: var(--SizeFontTitleP);
+  }
 
   
 element.style {
@@ -159,7 +168,7 @@ element.style {
     padding: 10px 20px;
     border: none;
     font-size: 17px;
-    color: #fff;
+    color: var(--colorSecondaire);
     border-radius: 7px;
     letter-spacing: 4px;
     font-weight: 700;
@@ -170,19 +179,18 @@ element.style {
   }
   
   .shadow__btn {
-    background: #93cf13;
-    box-shadow: 0 0 25px #93cf13;
+    background: var(--colorPrincipal);
+    box-shadow: 0 0 25px var(--colorPrincipal);
   }
   
   .shadow__btn:hover {
-    box-shadow: 0 0 5px #93cf13,
-                0 0 25px #93cf13,
-                0 0 50px #93cf13,
-                0 0 100px #93cf13;
+    box-shadow: 0 0 5px var(--colorPrincipal),
+                0 0 25px var(--colorPrincipal),
+                0 0 50px var(--colorPrincipal),
+                0 0 100px var(--colorPrincipal);
   }
 
   .containerAll {
-    height: 500px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -192,27 +200,29 @@ element.style {
   }
 
   .section2 {
-    height: 100vh;
     width: 100%;
     background-color: #090e16;
-    border-top: solid 1px #1d2734;
+    border-top: solid var(--Littleborder) #1d2734;
     display: flex;
     align-items: center;
     justify-content: center;
-    justify-content: space-between;
+    flex-direction: column;
   }
 
   footer {
-    border-top: #1d2734 solid 1px;
-    padding:40px 100px;
-    color: white;
+    border-top: #1d2734 solid var(--Littleborder);
+    padding: 3% 1%;
+    color: var(--colorSecondaire);
     background: #070b11;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
   }
   
-  footer li {
-    float: left;
-    padding: 0 10px;
-    list-style: none;
+  footer ul{
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
   }
   
   footer a {
@@ -230,7 +240,7 @@ element.style {
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
-    top: 50%;
+    top: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -244,7 +254,7 @@ element.style {
 .shape:first-child{
     background: linear-gradient(
         #55790d,
-        #93cf13
+        var(--colorPrincipal)
     );
     left: -80px;
     top: -80px;
@@ -252,7 +262,7 @@ element.style {
 .shape:last-child{
     background: linear-gradient(
         to right,
-        #93cf13,
+        var(--colorPrincipal),
         #55790d
     );
     right: -30px;
@@ -263,12 +273,11 @@ element.style {
 
 form{
   margin-top: 70px;
-    height: 520px;
     width: 400px;
     background-color: rgba(255, 255, 255, 0.018);
     position: absolute;
     transform: translate(-50%,-50%);
-    top: 50%;
+    top: 60%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
@@ -314,7 +323,7 @@ input{
 .btnLogin{
     margin-top: 50px;
     width: 100%;
-    background-color: #93cf13;
+    background-color: var(--colorPrincipal);
     color: white;
     padding: 15px 0;
     font-size: 18px;
@@ -346,19 +355,19 @@ input{
 }
 
 .containerImg {
-  padding: 20px 100px;
-  height: 60vh;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-content: space-around;
+  padding: 5%;
+}
+.containerImg .arrow{
+  width: 15%;
+  padding: 3%;
 }
 
 .beforeAfter {
   border-radius: 15px;
-  height: 600px;
-  width: 450px;
+  width: 40%;
 }
 
 .containerLogin {
@@ -366,15 +375,12 @@ input{
   width: 100%;
 }
 
-.loginPage {
-  height: 100vh;
+.loginPage, .registerPage, .YourProfil {
   width: 100%;
+  margin-bottom: 50%;
 }
 
-.registerPage {
-  height: 100vh;
-  width: 100%;
-}
+
 
 /* Page Check Code : style check code */
 #CheckTitle{
@@ -396,7 +402,7 @@ input{
 #btnSubmite{
   width: 40%;
   height: 40px;
-  background-color: #93cf13;
+  background-color: var(--colorPrincipal);
   color: white;
   border: none;
   border-radius: 5px;
@@ -414,14 +420,14 @@ input{
   font-size: 35px;
   width: 15%;
   height: 80px;
-  border: solid 1px #93cf13;
+  border: solid 1px var(--colorPrincipal);
   border-radius: 10px;
   box-shadow: 0 0 .1rem #fff,
   0 0 .05rem #fff,
-  0 0 0.5rem #93cf13,
-  0 0 0.4rem #93cf13,
-  0 0 1.2rem #93cf13,
-  inset 0 0 1.3rem #93cf13; 
+  0 0 0.5rem var(--colorPrincipal),
+  0 0 0.4rem var(--colorPrincipal),
+  0 0 1.2rem var(--colorPrincipal),
+  inset 0 0 1.3rem var(--colorPrincipal); 
 }
 #myBox input:focus {
   outline:  none;
@@ -437,10 +443,10 @@ input{
   border-radius: 10px;
   box-shadow: 0 0 .1rem #fff,
   0 0 .05rem #fff,
-  0 0 0.5rem #93cf13,
-  0 0 0.4rem #93cf13,
-  0 0 1.2rem #93cf13,
-  inset 0 0 1.3rem #93cf13; 
+  0 0 0.5rem var(--colorPrincipal),
+  0 0 0.4rem var(--colorPrincipal),
+  0 0 1.2rem var(--colorPrincipal),
+  inset 0 0 1.3rem var(--colorPrincipal); 
 }
 
 #sectionTrad{
@@ -466,14 +472,14 @@ input{
   height: 40px;
   background-color: #090e16;
   color: white;
-  border: solid 1px #93cf13;
+  border: solid 1px var(--colorPrincipal);
   border-radius: 10px;
   box-shadow: 0 0 .1rem #fff,
   0 0 .02rem #fff,
-  0 0 0.2rem #93cf13,
-  0 0 0.1rem #93cf13,
-  0 0 1rem #93cf13,
-  inset 0 0 1.3rem #93cf13; 
+  0 0 0.2rem var(--colorPrincipal),
+  0 0 0.1rem var(--colorPrincipal),
+  0 0 1rem var(--colorPrincipal),
+  inset 0 0 1.3rem var(--colorPrincipal); 
   outline: none;
 }
 #FormTrad{
@@ -504,7 +510,7 @@ input{
 
 }
 #AboTitle{
-  font-size: 30px;    
+  font-size: var(--SizeFontTitleP);    
   color: #fff;
   margin-bottom: 4%;
 }
@@ -522,31 +528,34 @@ input{
   align-items: center;
   flex-direction: column;
   width: 25%;
-  border: solid 1px #93cf13;
+  border: solid 1px var(--colorPrincipal);
   border-radius: 10px;
   color: #fff;
   box-shadow: 0 0 .1rem #fff,
   0 0 .02rem #fff,
-  0 0 0.2rem #93cf13,
-  0 0 0.1rem #93cf13,
-  0 0 1rem #93cf13,
-  inset 0 0 1.3rem #93cf13; 
+  0 0 0.2rem var(--colorPrincipal),
+  0 0 0.1rem var(--colorPrincipal),
+  0 0 1rem var(--colorPrincipal),
+  inset 0 0 1.3rem var(--colorPrincipal); 
   outline: none;
+}
+.ContAbo h2{
+  font-size: var(--SizeSousTitle);
+}
+.ContAbo p{
+  font-size: var(--SizeText);
 }
 
 .btnABO{
   width: 40%;
   height: 40px;
-  background-color: #93cf13;
+  background-color: var(--colorPrincipal);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin: 10% 0;
   border: none;
-}
-
-footer{
-  margin-top: 5%;
+  font-size: var(--SizeText);
 }
 

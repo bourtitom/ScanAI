@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleRes.css" >
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
     <nav class="navLanding">
-      <a href="index.php"><img src="logoScanAI.png" class="logo" /></a>
+      <a id="ContLogo" href="index.php"><img src="logoScanAI.png" class="logo" /></a>
       <ul class="ulNav">
         <a href="login.php"><li>Login</li></a>
         <a href="register.php"><li>Register</li></a>
@@ -21,7 +22,7 @@
         <div id="particles-js"></div>
         <h1 class="mainTitle" id="mainTitle">
           Instant Document Translation with <span>ScanAI</span><br />
-          <div class="backTitle">Your Content Transformed in Seconds</div>
+         Your Content Transformed in Seconds
         </h1>
         <button class="shadow__btn"><a href="login.php" style="color: white;">Try it now</a></button>
       </div>
@@ -45,21 +46,18 @@
          <img src="arrow-right.svg" class="arrow" style="color: #93cf13;">
          <img src="ex2.png" class="beforeAfter">
       </div>
+      <button class="shadow__btn"><a href="login.php" style="color: white;">Try it now</a></button>
+
     </section>
     <footer>
-      <div class='container'>
-      <div class='row'>
-          <div class='col-md-12'>
+      
               <ul>
                   <li><a href='#'>Terms</a></li>
                   <li><a href='#'>Privacy</a></li>
                   <li><a href='#'>Contact</a></li>
-                  <li><a href='#'></a></li>
-                  <p>&copy; Copyright 2024</p>
               </ul>
-          </div>
-      </div>
-      </div>
+              <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
+  
   </footer>
 
     <script src="particles.js"></script>

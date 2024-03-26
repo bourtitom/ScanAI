@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleRes.css" >
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ScanAI</title>
@@ -10,14 +12,14 @@
    
         <!-- Barre de navigation -->
         <nav class="navLanding">
-          <a href="index.php"><img src="logoScanAI.png" class="logo" /></a>
-          <ul class="ulNav">
-            <a href="login.php"><li>Login</li></a>
-            <a href="register.php"><li>Register</li></a>
-            <a href="abo.php"><li>Subscribe</li></a>
-            <a href="profil.php"><li>Profile</li></a>
-          </ul>
-        </nav>
+      <a id="ContLogo" href="index.php"><img src="logoScanAI.png" class="logo" /></a>
+      <ul class="ulNav">
+        <a href="login.php"><li>Login</li></a>
+        <a href="register.php"><li>Register</li></a>
+        <a href="abo.php"><li>Subscribe</li></a>
+        <a href="profil.php"><li>Profile</li></a>
+      </ul>
+    </nav>
         
     <!-- Conteneur d'abonnement -->
     <div class="containerAbo">
@@ -63,24 +65,15 @@
 
      <!-- Pied de page -->
      <footer>
-      <div class='container'>
-        <div class='row'>
-          <div class='col-md-12'>
-            <ul>
-              <!-- Liens de navigation du pied de page -->
-              <li><a href='#'>Terms</a></li>
-              <li><a href='#'>Privacy</a></li>
-              <li><a href='#'>Contact</a></li>
-              <li><a href='#'></a></li>
-              <!-- Message de droits d'auteur -->
-              <p>&copy; 2024 ScanAI. All rights reserved.</p>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+      
+      <ul>
+          <li><a href='#'>Terms</a></li>
+          <li><a href='#'>Privacy</a></li>
+          <li><a href='#'>Contact</a></li>
+      </ul>
+      <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
 
-
+</footer>
 
   </body>
 </html>
