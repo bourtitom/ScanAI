@@ -6,6 +6,7 @@ $db_name = 'scanai'; // Nom de la base de données
 $username = 'root'; // Nom d'utilisateur de la base de données
 $password = ''; // Mot de passe de la base de données
 
+
 // Options de la connexion PDO
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -21,3 +22,4 @@ try {
 }
 
 ?>
+
