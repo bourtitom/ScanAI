@@ -41,12 +41,8 @@ body {
   height: 50%;
   width: 50%;
 }
-#ContAcc{
-  width: 10%;
-}
-#AccPdp{
-  width: 100%;
-}
+
+
 .pdp{
   width: 100%;
   border-radius: 50%;
@@ -574,4 +570,11 @@ input{
   border: none;
   font-size: var(--SizeText);
 }
+#contConexion{
+  display: flex;
 
+}
+#contConexion span{
+  font-size: 3rem;
+  padding-right: 10%;
+}

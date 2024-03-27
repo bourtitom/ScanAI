@@ -1,7 +1,5 @@
-<?php
-ob_start();
-?>
-        
+<?php include("header.php"); ?>
+<main>
     <!-- Conteneur d'abonnement -->
     <div class="containerAbo">
       <!-- Titre de la section -->
@@ -12,7 +10,7 @@ ob_start();
       <section class="SectionAbo">
         <!-- Article pour l'abonnement classique -->
         <article class="ContAbo">
-          <img class="logoArt" src="gold.png" alt="">
+          <img class="logoArt" src="../assets/img/gold.png" alt="">
           <h2>Classic</h2>
           <p>€5/month</p>
           <ul>
@@ -22,7 +20,7 @@ ob_start();
         </article>
         <!-- Article pour l'abonnement premium -->
         <article class="ContAbo">
-          <img class="logoArt" src="ruby.png" alt="">
+          <img class="logoArt" src="../assets/img/ruby.png" alt="">
           <h2>Premium</h2>
           <p>€10/month</p>
           <ul>
@@ -32,7 +30,7 @@ ob_start();
         </article>
         <!-- Article pour l'abonnement King -->
         <article class="ContAbo">
-          <img class="logoArt" src="corwn.png" alt="">
+          <img class="logoArt" src="../assets/img/corwn.png" alt="">
           <h2>King</h2>
           <p>€15/month</p>
           <ul>
@@ -43,6 +41,10 @@ ob_start();
       </section>
     </div>
 
-    <?php 
-$content = ob_get_clean();
-require 'layout.php';
+</main>
+
+<?php
+
+include("footer.php");
+
+?>

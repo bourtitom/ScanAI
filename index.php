@@ -1,14 +1,59 @@
-<?php
-ob_start();
-?>
-    <div class="containerTitle">
+<?php session_start();?> 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"> <!--Meta-->
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ScanAI</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/styleRes.css">
+</head>
+<body>
+<nav class="navLanding">
+      <a id="ContLogo" href="index.php"><img src="assets/img/logoScanAI.png" class="logo" /></a>
+      <ul class="ulNav">
+       
+        <a href="index.php"><li>Home</li></a>
+        <a href="controllers/Controller.php?todo=abonnement"><li>Subscribe</li></a>
+        <?php 
+        if(!isset($_SESSION['user'])){
+          echo '
+          <a href="controllers/Controller.php?todo=AfficherLogin"><li>Login</li></a>
+          <a href="controllers/Controller.php?todo=AfficherRegister"><li>Register</li></a>
+          ';
+
+        }else{
+          echo '
+          <div id="contConexion">
+          <a id="ContAcc" href="controllers/Controller.php?todo=myProfil"><li id="AccPdp"><span class="material-symbols-outlined">
+          person
+          </span>
+          </li></a>
+
+          <a  href="controllers/Controller.php?todo=deconnexion"><li id="AccPdp"><span class="material-symbols-outlined">
+          logout
+          </span>
+          </li></a> 
+          </div>
+          ';
+          
+        }
+        ?>
+      </ul>
+    </nav>
+
+<div class="containerTitle">
       <div class="containerAll">
         <div id="particles-js"></div>
         <h1 class="mainTitle" id="mainTitle">
           Instant Document Translation with <span>ScanAI</span><br />
          Your Content Transformed in Seconds
         </h1>
-        <button class="shadow__btn"><a href="login.php" style="color: white;">Try it now</a></button>
+        <button class="shadow__btn"><a href="controllers/Controller.php?todo=CreerCompte" style="color: white;">Try it now</a></button>
       </div>
     </div>
 
@@ -26,17 +71,17 @@ ob_start();
 
     <section class="section2">
       <div class="containerImg">
-         <img src="ex1.png" class="beforeAfter">
-         <img src="arrow-right.svg" class="arrow" style="color: #93cf13;">
-         <img src="ex2.png" class="beforeAfter">
+         <img src="assets/img/ex1.png" class="beforeAfter">
+         <img src="assets/img/arrow-right.svg" class="arrow" style="color: #93cf13;">
+         <img src="assets/img/ex2.png" class="beforeAfter">
       </div>
-      <button class="shadow__btn"><a href="login.php" style="color: white;">Try it now</a></button>
+      <button class="shadow__btn"><a href="controllers/Controller.php?todo=AfficherLogin" style="color: white;">Try it now</a></button>
 
     </section>
 
-    <script src="particles.js"></script>
+    <script src="assets/js/particles.js"></script>
     <script>
-      particlesJS.load("particles-js", "particlesjs-config.json", function () {
+      particlesJS.load("particles-js", "assets/js/particlesjs-config.json", function () {
         console.log("callback - particles.js config loaded");
       });
     </script>
@@ -76,9 +121,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     </script>
-<?php 
-$content = ob_get_clean();
-require 'layout.php';
+    <footer>
+      
+      <ul>
+          <li><a href='#'>Terms</a></li>
+          <li><a href='#'>Privacy</a></li>
+          <li><a href='#'>Contact</a></li>
+      </ul>
+      <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
+
+</footer>
 
 
-
+</body>
+</html>
