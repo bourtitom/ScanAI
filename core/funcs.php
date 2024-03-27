@@ -186,5 +186,110 @@ function removeToken($amount, $userId)
 
 
 
+function createCryptoBill($userId, $amount) {
+    global $pdo;
+    $apiKey = '6TCVP8W-VV2MJC8-QQXDAQ8-8WX7SQ9'; // Remplacez par votre clé API réelle
+    $url = 'https://api.nowpayments.io/v1/payment';
+
+    // Création de la transaction sur NOWPayments
+    $data = array(
+        'price_amount' => $amount,
+        'price_currency' => 'usd',
+        'pay_currency' => 'btc',
+        // Vous pouvez ajuster les devises selon les besoins
+    );
+
+    // Initialisation de cURL
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'x-api-key: ' . $apiKey
+    ));
+
+    $result = curl_exec($ch);
+    $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    // Vérification de la réponse de l'API
+    if ($httpStatus != 200 && $httpStatus != 201) {
+        // Gestion des erreurs
+        return ["success" => false, "error" => "Erreur lors de la communication avec l'API NOWPayments"];
+    } else {
+        $response = json_decode($result, true);
+
+        // Vérifiez chaque clé avant utilisation
+        $payAddress = $response['pay_address'] ?? null;
+        $payAmount = $response['pay_amount'] ?? null;
+        $payCurrency = $response['price_currency'] ?? null;
+
+        $expirationDate = $response['expiration_estimate_date'] ?? null;
+        $paymentStatus = $response['payment_status'] ?? null;
+
+        // Enregistrement de la transaction dans la base de données
+        try {
+            $stmt = $pdo->prepare("INSERT INTO crypto_bills (user_id, payment_id, payment_status, expiration_date) VALUES (:userId, :paymentId, :paymentStatus, :expirationDate)");
+            $stmt->execute([
+                ':userId' => $userId,
+                ':paymentId' => $response['payment_id'] ?? null,
+                ':paymentStatus' => $paymentStatus,
+                ':expirationDate' => $expirationDate,
+            ]);
+
+            return [
+                "success" => true,
+                "paymentInfo" => [
+                    "payAddress" => $payAddress,
+                    "payAmount" => $payAmount,
+                    "payCurrency" => $payCurrency,
+                    "expirationDate" => $expirationDate,
+                    "payment_status" => $paymentStatus,
+                ]
+            ];
+        } catch (PDOException $e) {
+            return ["success" => false, "error" => "Erreur lors de l'enregistrement de la transaction : " . $e->getMessage()];
+        }
+    }           
+}
+
+function getUpdatedPaymentDetails($paymentId) {
+    global $pdo; // Assurez-vous d'avoir $apiKey défini quelque part dans vos configurations
+    $url = "https://api.nowpayments.io/v1/payment/{$paymentId}";
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('x-api-key: 6TCVP8W-VV2MJC8-QQXDAQ8-8WX7SQ9'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $result = curl_exec($ch);
+    $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($httpStatus == 200) {
+        $response = json_decode($result, true);
+        $payAddress = $response['pay_address'] ?? null;
+        $payAmount = $response['pay_amount'] ?? null;
+        $payCurrency = $response['price_currency'] ?? null;
+
+        $expirationDate = $response['expiration_estimate_date'] ?? null;
+        $paymentStatus = $response['payment_status'] ?? null;
+        // Assurez-vous de retourner ici les données de manière cohérente avec ce que votre front-end attend
+        return 
+           [
+                "payAddress" => $payAddress,
+                "payAmount" => $payAmount,
+                "payCurrency" => $payCurrency,
+                "expirationDate" => $expirationDate,
+                "payment_status" => $paymentStatus,
+            
+        ];
+    } else {
+        return false;
+    }
+}
+
+
+
 
 ?>

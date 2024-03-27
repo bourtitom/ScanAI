@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  
+<link href="
+https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5.0.16/dark.css
+" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,67 +28,59 @@
     <div class="shape"></div>
   </div>
         <!-- Formulaire d'inscription -->
-        <form style="height: 650px;">
-          <h3>Your Profil</h3>
-          <label for="email">Email</label>
-          <input type="text" placeholder="exemple@gmail.com" id="email" />
-          <label for="password" id="elementChange">Password</label>
-          <input type="password" placeholder="Enter your password" id="password">
-          <label for="passwordConfirm" id="passwordConfirmChange">Password Confirm</label>
-          <input type="password" placeholder="Repeat the password" id="passwordConfirm" />
-          <button class="btnLogin">Update</button>
-          <!-- Lien pour rediriger vers la page de connexion -->
-          <a href="login.php" style="color: white;">You dont have an account ? Register</a>
+        <form style="height: 650px; width: 50%;">
+        <h3 style="color: #93cf13; text-align: center; margin-bottom: 30px;">Mon Profil</h3>
+    
+    <!-- Section de modification du mot de passe -->
+    <div class="profile-item">
+        <label for="password" style="color: #ffffff;">Nouveau mot de passe</label>
+        <input type="password" id="password" placeholder="Entrer le nouveau mot de passe" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #93cf13; background-color: #090e16; color: white;">
+    </div>
+    
+    <!-- Affichage des tokens et recharge -->
+    <div class="profile-item" style="margin-top: 20px;">
+        <label style="color: #ffffff;">Tokens disponibles: <span id="token-count">50</span></label>
+        <button type="button" onclick="rechargeCredits()" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #93cf13; background-color: #93cf13; color: white; cursor: pointer;">Recharger les crédits</button>
+    </div>
+    
+    <!-- Bouton de mise à jour du profil -->
+    <div class="profile-item" style="margin-top: 20px;">
+        <button type="submit" style="width: 100%; padding: 15px; border-radius: 5px; border: none; background-color: #93cf13; color: white; cursor: pointer;">Mettre à jour le profil</button>
+    </div>
+</form>
         </form>
-    <!-- Script JavaScript -->
-    <script>
-      // Sélection des éléments nécessaires
-      const elementChange = document.getElementById("elementChange");
-      const inputVal = document.getElementById("password");
-      const passwordConfirm = document.getElementById("passwordConfirm");
-      const innerPassConf = document.getElementById("passwordConfirmChange");
-
-      // Fonction pour vérifier si les mots de passe correspondent
-      function verifPasswordConfirm(passwordConfirm) {
-        if (passwordConfirm.value === inputVal.value) {
-          innerPassConf.innerHTML = "Les mots de passe correspondent";
-          innerPassConf.style.color = "#93cf13";
-        } else if (passwordConfirm.value == 0) {
-          innerPassConf.innerHTML = "Password Confirm";
-          innerPassConf.style.color = "white";
-        } else {
-          innerPassConf.innerHTML = "Les mots de passe ne correspondent pas";
-          innerPassConf.style.color = "red";
-        }
-      }
-
-      // Fonction pour vérifier la force du mot de passe
-      function checkPasswordStrength(password) {
-        if (password.length >= 8) {
-          elementChange.innerHTML = "Mot de passe fort";
-          elementChange.style.color = "#93cf13";
-        } else if (password.length >= 6) {
-          elementChange.innerHTML = "Mot de passe moyen";
-          elementChange.style.color = "yellow";
-        } else if (password.length > 0) {
-          elementChange.innerHTML = "Mot de passe faible";
-          elementChange.style.color = "red";
-        } else {
-          elementChange.innerHTML = "Password";
-          elementChange.style.color = "white";
-        }
-      }
-
-      // Événement d'entrée pour le champ de confirmation du mot de passe
-      passwordConfirm.addEventListener("input", function() {
-        verifPasswordConfirm(this);
-      });
-
-      // Événement d'entrée pour le champ de mot de passe
-      inputVal.addEventListener("input", function() {
-        checkPasswordStrength(this.value);
-      });
-    </script>
+   
 
   </body>
+  
+<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+"></script>
+<SCRIPT>
+
+function rechargeCredits() {
+    Swal.fire({
+        title: 'Méthode de paiement',
+        html: `
+            <button id="payment-card" class="swal2-confirm swal2-styled" style="display: block; margin: 10px; border-left: none; border-right: none;"> <i class="fa-solid fa-credit-card"></i> Paiement par carte bancaire</button>
+            <button id="payment-crypto" class="swal2-deny swal2-styled" style="display: block; margin: 10px; border-left: none; border-right: none;"><i class="fa-brands fa-bitcoin"></i> Paiement par cryptomonnaies</button>
+        `,
+        showConfirmButton: false,
+        didOpen: () => {
+            document.getElementById('payment-card').addEventListener('click', () => {
+                Swal.fire('Redirection...', 'Vous allez être redirigé vers le paiement par carte bancaire.', 'success');
+                // Logique de redirection pour le paiement par carte
+            });
+            document.getElementById('payment-crypto').addEventListener('click', () => {
+                Swal.fire('Redirection...', 'Vous allez être redirigé vers le paiement par cryptomonnaies.', 'success');
+                // Logique de redirection pour le paiement par cryptomonnaies
+            });
+        }
+    });
+}
+
+
+  </script>
+<script src="https://kit.fontawesome.com/fd7b39a087.js" crossorigin="anonymous"></script>
+
 </html>

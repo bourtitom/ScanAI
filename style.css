@@ -550,3 +550,28 @@ footer{
   margin-top: 5%;
 }
 
+.profile-item label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff; /* Adaptez cette couleur à votre thème si nécessaire */
+}
+
+.profile-item input, .profile-item button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #93cf13;
+  background-color: #090e16;
+  color: white;
+}
+
+.profile-item button {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile-item button:hover {
+  background-color: #55790d; /* Couleur au survol */
+}
+
+
