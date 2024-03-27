@@ -30,6 +30,8 @@ function secureRegistration($email, $password)
                 // Hashage du mot de passe pour le stocker de manière sécurisée.
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+                
+
                 // Liaison des paramètres à la requête.
                 $stmt->bindParam(':email', $email, PDO::PARAM_STR);
                 $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
@@ -78,43 +80,49 @@ function secureRegistration($email, $password)
  */
 function secureLogin($email, $password)
 {
-    global $pdo; // Utilisation de l'objet PDO global pour la connexion à la base de données.
+    global $pdo;
 
-    // Nettoyage de l'email pour éviter les injections XSS.
     $cleanEmail = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 
     try {
-        // Préparation de la requête SQL pour récupérer l'utilisateur par son email.
-        $sql = "SELECT id, email, password FROM users WHERE email = :email LIMIT 1";
+        $sql = "SELECT id, email, `password` FROM users WHERE email = :email LIMIT 1";
         $stmt = $pdo->prepare($sql);
 
-        // Liaison de l'email à la requête.
         $stmt->bindParam(':email', $cleanEmail, PDO::PARAM_STR);
 
-        // Exécution de la requête.
         $stmt->execute();
 
-        // Récupération de l'utilisateur depuis la base de données.
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Vérification de l'existence de l'utilisateur et de la validité du mot de passe.
-        if ($user && password_verify($password, $user['password'])) {
-            // Au lieu de retourner simplement vrai, retourne les informations de l'utilisateur.
-            // On ne retourne pas directement le mot de passe pour des raisons de sécurité.
-            return [
-                'status' => true,
-                'id' => $user['id'],
-                'email' => $user['email']
-            ];
+        if ($user) {
+            // Si l'utilisateur existe dans la base de données
+            $hashedPassword = $user['password'];
+            if (password_verify($password, $hashedPassword)) {
+                // Si le mot de passe saisi correspond au mot de passe haché
+                echo "Connexion réussie !";
+                return [
+                    'status' => true,
+                    'id' => $user['id'],
+                    'email' => $user['email']
+                ];
+            } else {
+                // Informations incorrectes, connexion échouée.
+                echo "Échec de la connexion : Mauvais mot de passe.";
+                return [
+                    'status' => false,
+                    'message' => "Échec de la connexion, vérifiez votre mot de passe"
+                ];
+            }
         } else {
-            // Informations incorrectes, connexion échouée.
+            // Utilisateur non trouvé dans la base de données
+            echo "Échec de la connexion : Utilisateur non trouvé.";
             return [
                 'status' => false,
-                'message' => "Échec de la connexion, vérifiez votre mot de passe ou votre adresse e-mail"
+                'message' => "Échec de la connexion, utilisateur non trouvé"
             ];
         }
     } catch (PDOException $e) {
         // Gestion des erreurs liées à la base de données.
+        echo "Erreur de connexion : " . $e->getMessage();
         return [
             'status' => false,
             'message' => "Erreur de connexion à la base de données"
@@ -122,37 +130,6 @@ function secureLogin($email, $password)
     }
 }
 
-
-
-/*
- * Fonction pour ajouter des tokens à un utilisateur.
- * 
- * @param int $amount Nombre de tokens à ajouter.
- * @param int $userId Identifiant de l'utilisateur.
- * @return mixed Retourne true en cas de succès, un message d'erreur sinon.
- */
-function addTokens($amount, $userId)
-{
-    global $pdo; // Utilisation de l'objet PDO global pour la connexion à la base de données.
-
-    try {
-        // Mise à jour du nombre de jetons pour l'utilisateur spécifié.
-        $sql = "UPDATE users SET tokens = tokens + :amount WHERE id = :userId";
-        $stmt = $pdo->prepare($sql);
-
-        // Liaison des paramètres à la requête.
-        $stmt->bindParam(':amount', $amount, PDO::PARAM_INT);
-        $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
-
-        // Exécution de la requête.
-        $stmt->execute();
-
-        return true;
-    } catch (PDOException $e) {
-        // Gestion des erreurs liées à la base de données.
-        return "Erreur lors de l'ajout de jetons";
-    }
-}
 
 /*
  * Fonction pour retirer des tokens d'un utilisateur.

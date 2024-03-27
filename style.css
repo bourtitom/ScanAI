@@ -742,3 +742,14 @@ input{
   margin: 0.1em 0;
   text-decoration: none;
 }
+
+.container404 {
+  height: 50vh;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.error {
+  color: #93cf13;
+}
