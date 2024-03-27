@@ -53,7 +53,7 @@
           Instant Document Translation with <span>ScanAI</span><br />
          Your Content Transformed in Seconds
         </h1>
-        <button class="shadow__btn"><a href="controllers/Controller.php?todo=CreerCompte" style="color: white;">Try it now</a></button>
+        <button class="shadow__btn"><a href="controllers/Controller.php?todo=abonnement" style="color: white;">Try it now</a></button>
       </div>
     </div>
 
@@ -75,7 +75,7 @@
          <img src="assets/img/arrow-right.svg" class="arrow" style="color: #93cf13;">
          <img src="assets/img/ex2.png" class="beforeAfter">
       </div>
-      <button class="shadow__btn"><a href="controllers/Controller.php?todo=AfficherLogin" style="color: white;">Try it now</a></button>
+      <button class="shadow__btn"><a href="controllers/Controller.php?todo=abonnement" style="color: white;">Try it now</a></button>
 
     </section>
 
