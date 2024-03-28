@@ -3,93 +3,111 @@
 class Produit
 {
     //DECLARATION DES ATTRIBUTS DE LA CLASSE
-    private int $produitId;
-    private string $produitNom;
-    private float $produitPrix;
-    private string $produitImage;
+    private int $id;
+    private string $nom;
+    private float $prix;
+    private int $request;
+    private string $image;
 
 
     //**************METHODES ACCESSEURS (GETTERS AND SETTERS************)
-    //setter pour l'attribut produitId permet d'accéder en écriture à l'attribut
+    //setter pour l'attribut id permet d'accéder en écriture à l'attribut
     //cette méthode est une procédure (elle ne renvoie rien)
     /**
-     * @param int $produitId
-     * @param string $produitNom
-     * @param float $produitPrix
-     * @param string $produitImage
+     * @param int $id
+     * @param string $Nom
+     * @param float $prix
+     * @param int $request
+     * @param string $image
      */
-    public function __construct(int $produitId, string $produitNom, float $produitPrix, string $produitImage)
+    public function __construct(int $id, string $nom, float $prix, int $request, string $image)
     {
-        $this->setProduitId($produitId);
-        $this->setProduitNom($produitNom);
-        $this->setProduitPrix($produitPrix);
-        $this->setProduitImage($produitImage);
+        $this->setId($id);
+        $this->setNom($nom);
+        $this->setPrix($prix);
+        $this->setRequest($request);
+        $this->setImage($image);
     }
     /*
-    * @param string $produitId
+    * @param string $id
     */
-    public function setProduitId(int $produitId): void
+    public function setid(int $id): void
     {
-        $this->produitId = $produitId;
+        $this->id = $id;
     }
 
-    //getter pour l'attribut produitId permet d'accéder en lecture à l'attribut
+    //getter pour l'attribut id permet d'accéder en lecture à l'attribut
     //cette méthode est une fonction (elle renvoie un résultat typé)
-    public function getProduitId(): int
+    public function getid(): int
     {
-        return $this->produitId;
+        return $this->id;
     }
 
     /**
      * @return string
      */
-    public function getProduitNom(): string
+    public function getNom(): string
     {
-        return $this->produitNom;
+        return $this->nom;
     }
 
     /**
-     * @param string $produitNom
+     * @param string $Nom
      */
-    public function setProduitNom(string $produitNom): void
+    public function setNom(string $nom): void
     {
-        $this->produitNom = $produitNom;
+        $this->nom = $nom;
     }
 
     /**
      * @return float
      */
-    public function getProduitPrix(): float
+    public function getPrix(): float
     {
-        return $this->produitPrix;
+        return $this->prix;
     }
 
     /**
-     * @param float $produitPrix
+     * @param float $prix
      */
-    public function setProduitPrix(float $produitPrix): void
+    public function setPrix(float $prix): void
     {
-        if ($produitPrix >= 0) {
-            $this->produitPrix = $produitPrix;
+        if ($prix >= 0) {
+            $this->prix = $prix;
         } else {
             echo "LE PRIX DOIT ETRE SUPERIEUR A ZERO";
         }
     }
-
-    /**
-     * @return string
+   /**
+     * @return int
      */
-    public function getProduitImage(): string
+    public function getRequest(): int
     {
-        return $this->produitImage;
+        return $this->request;
     }
 
     /**
-     * @param string $produitImage
+     * @param int $request
      */
-    public function setProduitImage(string $produitImage): void
+    public function setRequest(int $request): void
     {
-        $this->produitImage = $produitImage;
+        $this->request = $request;
+
+    }
+    /**
+     * @return string
+     */
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
     }
 
 

@@ -28,13 +28,15 @@
 
         }else{
           echo '
+          <a href="../controllers/Controller.php?todo=trad"><li>Traduction</li></a>
+          ';
+          echo '
           <div id="contConexion">
-          <a id="ContAcc" href="controllers/Controller.php?todo=myProfil"><li id="AccPdp"><span class="material-symbols-outlined">
-          person
-          </span>
+          <a id="ContAcc" href="controllers/Controller.php?todo=myProfil"><li id="AccPdp">
+          <span class="material-symbols-outlined">account_circle</span>
           </li></a>
 
-          <a  href="controllers/Controller.php?todo=deconnexion"><li id="AccPdp"><span class="material-symbols-outlined">
+          <a  href="controllers/Controller.php?todo=deconnexion"><li id="AccPdp2"><span class="material-symbols-outlined">
           logout
           </span>
           </li></a> 

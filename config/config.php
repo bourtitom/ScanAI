@@ -4,6 +4,6 @@
 define('HOST', 'localhost');
 define('DATABASE', 'boutiquebasiqueoff');
 define('USER', 'root');
-define('PASSWORD', '');
+define('PASSWORD', 'root');
 
 ?>

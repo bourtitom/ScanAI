@@ -36,15 +36,15 @@ class Users
      */
     public function getId(): int
     {
-        return $this->Id;
+        return $this->id;
     }
 
     /**
      * @param int $Id
      */
-    public function setId(int $Id): void
+    public function setId(int $id): void
     {
-        $this->Id = $Id;
+        $this->id = $id;
     }
 
 

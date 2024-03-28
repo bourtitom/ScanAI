@@ -4,7 +4,7 @@ require('ControllerProduit.php');
 require('ControllerUsers.php');
 
 
-//ON INSTANCIE UN OBJET DE TYPE ControllerProduit
+//ON INSTANCIE UN OBJET DE TYPE CONTROLLERCLIENT & CONTROLLERPRODUIT
 $cp = new ControllerProduit();
 $cc = new ControllerUsers();
 
@@ -18,39 +18,44 @@ if (isset($_GET['todo'])) {
         case
         "abonnement":
         {
-            //On appelle la méthode concernée dans la classe ControllerProduit
+            //on accede a la page d'abonnement
             $cp->showAbo();
             break;
         }
         case
         "myProfil":
         {
-            //On appelle la méthode concernée dans la classe ControllerProduit
+            //on affiche le profil de l'utilisateur en session
             $cc->showProfil();
             break;
         }
 
-        // L'UTILISATEUR A CLIQUE SUR LE LIEN "voir le catalogue des produits" dans le menu
         case "AfficherLogin":
             {
-                //On appelle la méthode concernée dans la classe ControllerProduit
+                //On affiche le formulaire de connexion
                 $cc->showLogin();
                 break;
             }
-          // L'UTILISATEUR A CLIQUE SUR LE LIEN "voir le catalogue des produits" dans le menu
+
           case "AfficherRegister":
             {
-                //On appelle la méthode concernée dans la classe ControllerProduit
+                //on affiche le formulaire d'inscription
                 $cc->showRegister();
                 break;
             }
-    
+            case "AfficherTrad":
+                {
+                    //on affiche le formulaire d'inscription
+                    $cc->showTrad();
+                    break;
+                }
+        
         // L'UTILISATEUR A CLIQUE "se déconnecter"
         case "deconnexion":
         {
-            //On appelle la méthode concernée dans la classe ControllerPanier
+            //on détruit la session
             session_destroy();
-            //On redirige vers le layout
+            //On redirige vers la page d'accueil
             header('Location: ../index.php');
             break;
         }
@@ -58,7 +63,7 @@ if (isset($_GET['todo'])) {
         //GESTION DES CAS D'ERREURS
         default :
         {
-            echo "erreur de redirection!!!";
+            require('../views/404.php');
             break;
         }
 
@@ -95,7 +100,7 @@ if (isset($_POST['todo'])) {
         //GESTION DES CAS D'ERREURS
         default :
         {
-            echo "erreur de redirection!!!";
+            require('../views/404.php');
             break;
         }
 

@@ -57,6 +57,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
+
 .ulNav li {
   color: var(--colorSecondaire);
   position: relative;
@@ -575,6 +576,66 @@ input{
 
 }
 #contConexion span{
-  font-size: 3rem;
   padding-right: 10%;
+}
+#AccPdp span{
+  font-size: 3rem;
+}
+#AccPdp2 span{
+  font-size: 2rem;
+}
+.containerEye {
+  --color: #a5a5b0;
+  --size: 23px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--size);
+  user-select: none;
+  fill: var(--color);
+  bottom: 42px;
+  right: 12px;
+}
+
+.containerEye .eye {
+  position: absolute;
+  animation: keyframes-fill .5s;
+}
+
+.containerEye .eye-slash {
+  position: absolute;
+  animation: keyframes-fill .5s;
+  display: none;
+}
+
+/* ------ On check event ------*/
+.containerEye input:checked ~ .eye {
+  display: none;
+}
+
+.containerEye input:checked ~ .eye-slash {
+  display: block;
+}
+
+/* ------ Hide the default checkbox ------ */
+.containerEye input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* ------ Animation ------ */
+@keyframes keyframes-fill {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
 }

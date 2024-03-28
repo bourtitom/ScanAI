@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,14 +6,15 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../assets/css/header.css">
     <title>ScanAI</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/styleRes.css">
+    <link rel="stylesheet" href="../assets/css/404.css">
+
 </head>
 <body>
-<header>
 <nav class="navLanding">
       <a id="ContLogo" href="../index.php"><img src="../assets/img/logoScanAI.png" class="logo" /></a>
       <ul class="ulNav">
@@ -52,5 +52,23 @@
       </ul>
     </nav>
 
-</header>
 
+
+        <main>
+        <h1>404</h1>
+<h2>-  Error Not Found  -</h2>
+        </main>
+    <footer>
+      
+      <ul>
+          <li><a href='#'>Terms</a></li>
+          <li><a href='#'>Privacy</a></li>
+          <li><a href='#'>Contact</a></li>
+      </ul>
+      <p>&copy; Copyright 2024 ScanAI. Tous droits réservés.</p>
+
+</footer>
+
+
+</body>
+</html>

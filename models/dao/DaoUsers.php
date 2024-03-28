@@ -38,21 +38,14 @@ class DaoUsers
     {
 
 
-        $user = new user($_POST['userId'], $_POST['userPrenom'], $_POST['userNom'], $_POST['userNaissance'], $_POST['userMail'], password_hash($_POST['userPassword'], PASSWORD_BCRYPT));
-
-        $query = $this->maConnection->prepare("UPDATE user SET user_PRENOM = ?, user_NOM = ? , user_NAISSANCE = ? , user_MAIL= ? , user_PASSWORD = ?  WHERE user_ID = ? ");
+        $query = $this->maConnection->prepare("UPDATE users SET email = ?  WHERE id = ? ");
         //ON APPELLE LA FONCTION QUI VA  EXECUTER LA REQUETE
         $result = $query->execute(array(
-            $user->getuserPrenom(),
-            $user->getuserNom(),
-            $user->getuserNaissance(),
-            $user->getuserMail(),
-            $user->getuserPassword(),
-            $user->getuserId()
-
+            $_POST['email'],
+            $_POST['id']
         ));
         //ON RENVOIE L ID DU user AU CONTROLEUR POUR QU il LE TRANSMETTE A LA VUE AFFICHERuserS
-        return $where = "user_ID=" . $user->getuserId();
+        return $where = "user_ID=" .  $_POST['id'];
     }
 
 
@@ -77,7 +70,7 @@ class DaoUsers
     }
     function getUserById($id): array
     {
-        $query = $this->maConnection->prepare("SELECT id,email, password, last_connexion , date_registered 
+        $query = $this->maConnection->prepare("SELECT * 
                                     FROM users
                                     WHERE id=?");
 
@@ -146,102 +139,11 @@ class DaoUsers
     }
 
 
-    function afficherusers($Iduser = null): string
-    {
-            $lesusers = array();
-         if ($Iduser !== null) {
-
-            /* récupérer les données du formulaire en utilisant
-           la valeur des attributs name comme clé */
-             $lesusers = $this->getUserById($Iduser);
-        }
-        if (isset($_SESSION['user']) ) {
-
-                $lesusers = $this->getAll();
-
-        }
-        else if (!empty($_POST['nomuser'])) {
-            /* récupérer les données du formulaire en utilisant
-               la valeur des attributs name comme clé
-              */
-
-            $lesusers = $this->getUserById($_POST['nomuser']);
-        }
 
 
-        //ON AFFICHE LE HTML POUR LE FICHIER "Afficherusers"
-        if($_SESSION["user"]['id'] !== 0){
-            $contenu =
-                "<section id='slogan'>
-    <h2>Mon Profil</h2></div ></section><div id='menu'>";
-
-        }if($_SESSION["user"]['id'] == 0){
-        $contenu =
-            "<section id='slogan'>
-    <h2>Catalogue users</h2></div ></section><div id='menu'>";
-
-        }
-
-        foreach ($lesusers as $user) {
-            $id = $user->getuserId();
-            $naissance = strftime('%d/%m/%Y', strtotime($user->getuserNaissance()));
-            $signe = $user->getuserSigne();
-            $contenu .= "<article class='article' >
-        <div class='container' ><img class='image' src = '../assets/img/" . $signe . " ' alt=''></div >
-         <h2 > " . $user->getuserPrenom() . ' ' . $user->getuserNom() . "</h2 >
-         <p style='text-align: center;'> date de naissance " . $naissance . " 
-         <br>" . $user->getuserAge() . " ANS</p><br>
-        <button id='submit'>
-            <a href = '../controllers/Controller.php?todo=modifieruser&id=$id'>MODIFIER OU SUPPRIMER LE user</a>
-        </button><br> ";
 
 
-            if (isset($_SESSION["user"])) {
-                $contenu .= "<a href = '../controllers/Controller.php?todo=commencerCommande'>PASSER UNE COMMANDE</a>";
-            }
-            $contenu .= "</article > ";
-
-        }
-        return $contenu;
-    }
-
-
-//CETTE FONCTION PERMET D'AFFICHER UN FORMULAIRE DE RECHERCHE DE userS
-    function rechercheuser(): string
-    {    //ON APPELLE LA FONCTION QUI VA FAIRE LA REQUETE AUPRES DE LA BASE DE DONNEES
-        //CETTE FONCTION RENVOIE TOUS LES user SOUS FORME DE TABLEAU D'OBJETS
-        $lesusers = $this->getAll();
-
-        //ON AFFICHE LE HTML POUR LE FICHIER "Modifierusers"
-        $recherche = "
-<form name='searchProduct' action='../controllers/Controller.php' method='post' class='search-form'>
-            <input type='hidden' name='todo' value='afficherusers'>
-    <label for='nomuser' hidden></label>
-    <select name='nomuser' id='nomuser' class='header-select' onchange='this.form.submit()'>
-        <option value=''>Choisir un user</option>";
-        foreach ($lesusers as $user) {
-            $recherche .= "<option value=" . $user->getuserId() . ">" . $user->getuserPrenom() . ' ' . $user->getuserNom() . "</option>";
-        }
-
-        $recherche .= "</select>
-</form>";
-
-        return $recherche;
-    }
-
-//CETTE FONCTION PREND EN GET DANS L URL UN ID user
-//ET RENVOIE user
-    function afficherFormModif(): user
-    {
-
-        //ON APPELLE LA FONCTION QUI VA FAIRE LA REQUETE AUPRES DE LA BASE DE DONNEES
-        //CETTE FONCTION RENVOIE UN TABLEAU CONTENANT LE user A MODIFIER
-        //ON RETOURNE CET OBJET user AU CONTROLEUR QUI A APPELLE LA FONCTION
-        //LE CONTROLEUR RETOURNERA L'OBJET A LA VUE "Modifieruser";
-        return $this->getUserById($_GET['id'])[0];
-
-    }
-
+/*
     function secureRegistration($email, $password)
 {
 
@@ -254,7 +156,7 @@ class DaoUsers
                 
                 // Préparation de la requête SQL pour insérer le nouvel utilisateur.
                 $sql = "INSERT INTO users (email, password, last_connexion, date_registered) VALUES (:email, :password, NOW(), NOW())";
-                $stmt = $pdo->prepare($sql);
+                $stmt = $this->maConnection->prepare($sql);
 
                 // Hashage du mot de passe pour le stocker de manière sécurisée.
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -267,7 +169,7 @@ class DaoUsers
                 $stmt->execute();
 
                 // Récupère l'ID de l'utilisateur nouvellement créé.
-                $userId = $pdo->lastInsertId();
+                $userId = $this->maConnection->lastInsertId();
                 // Si tout se passe bien, retourne l'ID de l'utilisateur.
                 return [
                     'status' => true,
@@ -296,5 +198,5 @@ class DaoUsers
     }
 }
 
-
+*/
 }
