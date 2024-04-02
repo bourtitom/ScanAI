@@ -54,3 +54,25 @@
 
 </header>
 
+<button class="chatbot-toggler">
+    <span class="material-symbols-outlined">mode_comment</span>
+    <span class="material-symbols-outlined">close</span>
+    </button>
+      <div class="chatbot">
+        <header>
+          <h2>ScanAi Helper</h2>
+          <span class="close-btn material-symbols-outlined">close</span>
+          <button class="clear-chat-btn">Effacer le chat</button>
+        </header>
+        <ul class="chatbox">
+          <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>Hey <br>asks a question that contains scanai to start !</p>
+          </li>
+        </ul>
+        <div class="chat-input">
+          <textarea placeholder="Enter a message..." required></textarea>
+          <span id="send-btn" class="material-symbols-outlined">send</span>
+        </div>
+      </div>
+      <script src="../assets/js/chatbot.js"></script>
