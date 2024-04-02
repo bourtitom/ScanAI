@@ -30,7 +30,7 @@
 
         }else{
           echo '
-          <a href="../controllers/Controller.php?todo=trad"><li>Traduction</li></a>
+          <a href="../controllers/Controller.php?todo=AfficherTrad"><li>Traduction</li></a>
           ';
           echo '
           <div id="contConexion">
