@@ -1,6 +1,5 @@
-<?php
-ob_start();
-?>
+<?php include("header.php"); ?>
+
   <!-- Arrière-plan -->
   <div class="background">
     <!-- Formes de fond -->
@@ -13,14 +12,14 @@ ob_start();
         <form >
           <h3>Your Profil</h3>
           <label for="email">Email</label>
-          <input type="text" placeholder="exemple@gmail.com" id="email" />
+          <input type="text" value="<?php echo $_SESSION['user']['email']; ?>" id="email" />
           <label for="password" id="elementChange">Password</label>
           <input type="password" placeholder="Enter your password" id="password">
           <label for="passwordConfirm" id="passwordConfirmChange">Password Confirm</label>
           <input type="password" placeholder="Repeat the password" id="passwordConfirm" />
           <button class="btnLogin">Update</button>
           <!-- Lien pour rediriger vers la page de connexion -->
-          <a href="logout.php" style="color: white;">Your leave ? logout</a>
+          <a href="../controllers/Controller.php?todo=deconnexion" style="color: white;">Your leave ? logout</a>
         </form>
         </section>
 
@@ -74,6 +73,4 @@ ob_start();
         checkPasswordStrength(this.value);
       });
     </script>
-<?php 
-$content = ob_get_clean();
-require 'layout.php';
+<?php include("footer.php"); ?>
