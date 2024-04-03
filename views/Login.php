@@ -6,7 +6,7 @@
   <div class="shape"></div>
   <div class="shape"></div>
 </div>
-<form action="../controllers/Controller.php" method="POST">
+<form class="Formed" action="../controllers/Controller.php" method="POST">
   <h3 class="UnderTitle">Login Here</h3>
   <input type='hidden' name='todo' value='seConnecter'>
   <label for="email">Email</label>

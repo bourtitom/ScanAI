@@ -6,7 +6,7 @@
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
-  <form  method="POST" action="../controllers/Controller.php">
+  <form class="Formed"  method="POST" action="../controllers/Controller.php">
     <h3>Register Here</h3>
     <input type='hidden' name='todo' value='CreerCompte'>
 

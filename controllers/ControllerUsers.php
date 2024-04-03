@@ -31,7 +31,32 @@ class ControllerUsers
     {
         require('../views/profil.php');
     }
-  
+    public function trad()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
+            $upload_dir = "../assets/img/"; // Remplacez cela par le chemin réel de votre répertoire assets sur le serveur
+            
+            // Obtient les informations du fichier
+            $file_name = $_FILES["image"]["name"];
+            $file_tmp = $_FILES["image"]["tmp_name"];
+            $file_type = $_FILES["image"]["type"];
+            
+            // Vérifie si c'est bien une image
+            $allowed_types = array("image/jpeg", "image/png", "image/gif");
+            if (in_array($file_type, $allowed_types)) {
+                // Déplace le fichier téléchargé vers le répertoire d'assets sur le serveur
+                move_uploaded_file($file_tmp, $upload_dir . "/" . $file_name);
+                echo "L'image a été téléchargée avec succès.";
+            } else {
+                echo "Seuls les fichiers de type JPEG, PNG et GIF sont autorisés.";
+            }
+        } else {
+            echo "Erreur : Aucune image n'a été sélectionnée ou le formulaire n'a pas été soumis correctement.";
+        }
+        $this->daoUsers->trad();
+
+        header('Location: ../index.php');
+    }
 
     // on déclare les methodes de traitement des données
     public function login()

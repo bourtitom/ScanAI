@@ -9,8 +9,10 @@
   <section class="YourProfil">
     
         <!-- Formulaire d'inscription -->
-        <form >
+        <form class="Formed" method="POST" action="../controllers/Controller.php" >
           <h3>Your Profil</h3>
+          <input type='hidden' name='todo' value='UpdateAccount'>
+
           <label for="email">Email</label>
           <input type="text" value="<?php echo $_SESSION['user']['email']; ?>" id="email" />
           <label for="password" id="elementChange">Password</label>

@@ -26,6 +26,15 @@
         margin-top: 10%;
       }
       
+      .allContain{
+        flex-direction: column;
+      }
+      .containerDrop{
+        margin-bottom: 10%;
+      }
+      .btnTrad{
+        width: 20%;
+      }
       .parent{
         grid-template-columns: repeat(1, 1fr);
       }

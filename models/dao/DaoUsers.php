@@ -105,6 +105,43 @@ class DaoUsers
     //CETTE FONCTION RENVOIE UN TABLEAU CONTENANT UN OU PLUSIEURS OBJETS DE TYPE user
 
     //CETTE FONCTION VERIFIE LE LOGIN ET MET LE user EN SESSION
+    function trad()
+    {
+        $url = 'http://37.221.65.85:8001/translate_image';
+        $imagePath = $_SESSION["ImgScan"];
+        $curl = curl_init($url);
+        $cfile = new CURLFile(realpath($imagePath), 'image/jpeg', 'test_image.jpg');
+
+        $data = array('image' => $cfile);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 60); // Temps en secondes
+        curl_setopt($curl, CURLOPT_BUFFERSIZE, 12800); // Taille du buffer en octets
+
+        // Envoyer la requête et récupérer la réponse
+        $response = curl_exec($curl);
+
+        // Vérifier s'il y a eu une erreur
+        if (curl_errno($curl)) {
+            $error_msg = curl_error($curl);
+            echo "Erreur cURL : " . $error_msg;
+        } else {
+            // Si pas d'erreur, décoder la réponse (supposant que la réponse est un JSON avec une clé 'image_base64')
+            $responseArray = json_decode($response, true);
+            if (isset($responseArray['image_base64'])) {
+                $imageBase64 = $responseArray['image_base64'];
+                // Afficher l'image en utilisant une balise img avec la source en base64
+                echo '<img src="data:image/jpeg;base64,' . $imageBase64 . '" />';
+            } else {
+                echo "La réponse de l'API ne contient pas d'image en base64.";
+            }
+        }
+
+        // Fermer la session cURL
+        curl_close($curl);
+
+    }
     function login()
     {
        $tuser = $this->getUserByEmail($_POST['email']);

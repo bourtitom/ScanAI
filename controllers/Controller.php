@@ -89,6 +89,12 @@ if (isset($_POST['todo'])) {
             $cc->register();
             break;
         }
+         case  "Trad":
+        {
+            //On appelle la méthode concernée dans la classe ControllerClient
+            $cc->trad();
+            break;
+        }
 
         // L UTILISATEUR A CLIQUE SUR L'ICONE "SE CONNECTER"
         case "seConnecter":
