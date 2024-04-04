@@ -9,7 +9,12 @@
   <form class="Formed"  method="POST" action="../controllers/Controller.php">
     <h3>Register Here</h3>
     <input type='hidden' name='todo' value='CreerCompte'>
-
+    <?php
+          if (isset($_SESSION['error'])) {
+            echo '<div class="error">' . $_SESSION['error'] .'</div>' ;
+            unset($_SESSION['error']);  // pour supprimer le message d'erreur après l'avoir affiché
+          }
+          ?>
     <label for="email">Email</label>
     <input type="text" placeholder="Enter your mail" name="email" id="email" />
 

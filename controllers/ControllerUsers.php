@@ -57,21 +57,26 @@ class ControllerUsers
 
         header('Location: ../index.php');
     }
+    public function update()
+    {
+        $this->daoUsers->update();
+        header('Location: Controller.php?todo=myProfil');
+
+    }
 
     // on déclare les methodes de traitement des données
     public function login()
     {
        //On récupère la methode de daoUsers qui recherche les clients
         //et qui les retourne sous forme de variable $contenu que l'on passe à la vue concernée.
-        $contenu = $this->daoUsers->login();
-
-        header('Location: ../index.php');
+        $this->daoUsers->login();
+        
     }
     public function register()
     {
        //On récupère la methode de daoUsers qui recherche les clients
         //et qui les retourne sous forme de variable $contenu que l'on passe à la vue concernée.
-        $contenu = $this->daoUsers->createuser();
+        $this->daoUsers->createuser();
 
         header('Location: ../index.php');
     }

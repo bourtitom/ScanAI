@@ -9,6 +9,12 @@
 <form class="Formed" action="../controllers/Controller.php" method="POST">
   <h3 class="UnderTitle">Login Here</h3>
   <input type='hidden' name='todo' value='seConnecter'>
+  <?php
+          if (isset($_SESSION['error'])) {
+            echo '<div class="error">' . $_SESSION['error'] .'</div>' ;
+            unset($_SESSION['error']);  // pour supprimer le message d'erreur après l'avoir affiché
+          }
+          ?>
   <label for="email">Email</label>
   <input type="text" name="email" placeholder="Email or Phone" id="email" />
 
