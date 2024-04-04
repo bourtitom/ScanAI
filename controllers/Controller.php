@@ -91,7 +91,7 @@ if (isset($_POST['todo'])) {
         }
          case  "Trad":
         {
-            //On appelle la méthode concernée dans la classe ControllerClient
+            //On appelle la méthode concernée dans la classe ControllerClient pour traduire
             $cc->trad();
             break;
         }
@@ -103,6 +103,14 @@ if (isset($_POST['todo'])) {
             $cc->login();
             break;
         }
+
+        // L UTILISATEUR A CLIQUE SUR L'ICONE "Update profil"
+        case "updateProfil":
+            {
+                //On appelle  la méthode concernée dans la classe ControllerClient
+                $cc->update();
+                break;
+            }
         //GESTION DES CAS D'ERREURS
         default :
         {

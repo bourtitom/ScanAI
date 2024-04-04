@@ -9,16 +9,23 @@
   <section class="YourProfil">
     
         <!-- Formulaire d'inscription -->
-        <form class="Formed" method="POST" action="../controllers/Controller.php" >
+        <form class="Formed" method="POST"  action="../controllers/Controller.php" >
           <h3>Your Profil</h3>
-          <input type='hidden' name='todo' value='UpdateAccount'>
+          <?php
+          if (isset($_SESSION['error'])) {
+            echo '<div class="error">' . $_SESSION['error'] .'</div>' ;
+            unset($_SESSION['error']);  // pour supprimer le message d'erreur après l'avoir affiché
+          }
+          ?>
 
+          <input type='hidden' name='todo' value='updateProfil'>
+          <input type="hidden" name="id" value="<?php echo $_SESSION['user']['id']; ?>">
           <label for="email">Email</label>
-          <input type="text" value="<?php echo $_SESSION['user']['email']; ?>" id="email" />
+          <input type="text" name="email" value="<?php echo $_SESSION['user']['email']; ?>" id="email" />
           <label for="password" id="elementChange">Password</label>
-          <input type="password" placeholder="Enter your password" id="password">
+          <input  type="password" name="password" placeholder="Enter your password" id="password">
           <label for="passwordConfirm" id="passwordConfirmChange">Password Confirm</label>
-          <input type="password" placeholder="Repeat the password" id="passwordConfirm" />
+          <input  type="password" name="confPassword" placeholder="Repeat the password" id="passwordConfirm" />
           <button class="btnLogin">Update</button>
           <!-- Lien pour rediriger vers la page de connexion -->
           <a href="../controllers/Controller.php?todo=deconnexion" style="color: white;">Your leave ? logout</a>

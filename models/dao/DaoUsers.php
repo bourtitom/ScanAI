@@ -22,6 +22,40 @@ class DaoUsers
 //CETTE FONCTION PERMET DE CREER UN NOUVEAU user
     function createuser(): string
     {
+        $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
+        $password = $_POST["password"];
+        $passwordConfirm = $_POST["passwordConfirm"];
+        if ($password != $passwordConfirm) {
+            $_SESSION['error'] = "Erreur : Les mots de passe ne correspondent pas.";
+            header('Location: Controller.php?todo=AfficherRegister');
+            exit();
+        }
+        if ($email == false) {
+            $_SESSION['error'] = "Erreur : Email invalide.";
+            header('Location: Controller.php?todo=AfficherRegister');
+            exit();
+        }
+        if (strlen($password) < 8) {
+            $_SESSION['error'] = "Erreur : Le mot de passe doit contenir au moins 8 caractères.";
+            header('Location: Controller.php?todo=AfficherRegister');
+            exit();
+        }
+        if (strlen($password) > 20) {
+            $_SESSION['error'] = "Erreur : Le mot de passe doit contenir au maximum 20 caractères.";
+            header('Location: Controller.php?todo=AfficherRegister');
+            exit();
+        }
+        if (strlen($email) > 50) {
+            $_SESSION['error'] = "Erreur : L'email doit contenir au maximum 50 caractères.";
+            header('Location: Controller.php?todo=AfficherRegister');
+            exit();
+        }
+        $tuser = $this->getUserByEmail($_POST['email']);
+        if (count($tuser) == 1) {
+            $_SESSION['error'] = "Erreur : Email déjà utilisé.";
+            header('Location: Controller.php?todo=AfficherRegister');
+            exit();
+        }
 
         $query = $this->maConnection->prepare("INSERT INTO `users`(`email`,`password`) values(?, ?)");
         //ON APPELLE LA FONCTION QUI VA  EXECUTER LA REQUETE
@@ -29,7 +63,7 @@ class DaoUsers
             $_POST['email'],
             password_hash($_POST['password'], PASSWORD_BCRYPT),
         ));
-
+        
         return $this->maConnection->lastInsertId();
     }
 
@@ -142,6 +176,46 @@ class DaoUsers
         curl_close($curl);
 
     }
+
+    function update(){
+        $tuser = $this->getUserById($_POST['id'])[0];
+   
+        if(!password_verify($_POST['password'], $tuser->getPassword())){
+            if($_POST['password'] != "" && $_POST['email'] != $tuser->getEmail()){  // SI LE MOT DE PASSE EST DIFFERENT DE VIDE ALORS ON MET A JOUR L'EMAIL ET LE MOT DE PASSE
+                $query = $this->maConnection->prepare("UPDATE users SET email = ? , password = ?  WHERE id = ?");
+                $result = $query->execute(array(
+                    $_POST['email'],
+                    password_hash($_POST['password'], PASSWORD_BCRYPT),
+                    $_POST['id']
+                ));
+                $_SESSION['user']['email'] = $_POST['email'];
+            }else if($_POST['password'] != "" && $_POST['email'] == $tuser->getEmail()){
+                $query = $this->maConnection->prepare("UPDATE users SET password = ?  WHERE id = ?");
+                $result = $query->execute(array(
+                    password_hash($_POST['password'], PASSWORD_BCRYPT),
+                    $_POST['id']
+                ));
+            }
+            else if($_POST['password'] == "" && $_POST['email'] != $tuser->getEmail()){
+                $query = $this->maConnection->prepare("UPDATE users SET email = ?  WHERE id = ?");
+                $result = $query->execute(array(
+                    $_POST['email'],
+                    $_POST['id']
+                ));
+                $_SESSION['user']['email'] = $_POST['email'];
+            }else{
+                $_SESSION['error'] = "Erreur : Le mot de passe est vide ou l'email est le meme.";
+                header('Location: Controller.php?todo=myProfil');
+                exit();
+            }
+           
+        }else{
+            $_SESSION['error'] = "Erreur : Le mot de passe est le même.";
+            header('Location: Controller.php?todo=myProfil');
+            exit();
+        }
+    }
+    
     function login()
     {
        $tuser = $this->getUserByEmail($_POST['email']);
@@ -162,8 +236,10 @@ class DaoUsers
 
         //SI ok EST FALSE, ON RETOURNE UN MESSAGE D'ERREUR
         if (!$ok) {
-            return "LE LOGIN EST ERRONE";
-        
+            $_SESSION['error'] = "Erreur : Email ou mot de passe incorrect.";
+            header('Location: Controller.php?todo=AfficherLogin');
+            exit();
+
         }
         //SINON ON MET LE CLIENT EN SESSION ET ON APPELLE LA FONCTION QUI PERMETTRA
         //DE L'AFFICHER DANS "Layout'
@@ -172,6 +248,8 @@ class DaoUsers
                 "id" => $user->getId(),
                 "email" => $user->getEmail(),
             ];
+            header('Location: ../index.php');
+
         }
     }
 
@@ -179,61 +257,4 @@ class DaoUsers
 
 
 
-
-/*
-    function secureRegistration($email, $password)
-{
-
-    // Vérifie si l'adresse e-mail est valide.
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Vérifie si le mot de passe est assez fort selon les critères définis.
-        die($email);
-        if (isStrongPassword($password)) {
-            try {
-                
-                // Préparation de la requête SQL pour insérer le nouvel utilisateur.
-                $sql = "INSERT INTO users (email, password, last_connexion, date_registered) VALUES (:email, :password, NOW(), NOW())";
-                $stmt = $this->maConnection->prepare($sql);
-
-                // Hashage du mot de passe pour le stocker de manière sécurisée.
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-                // Liaison des paramètres à la requête.
-                $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-                $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
-
-                // Exécution de la requête.
-                $stmt->execute();
-
-                // Récupère l'ID de l'utilisateur nouvellement créé.
-                $userId = $this->maConnection->lastInsertId();
-                // Si tout se passe bien, retourne l'ID de l'utilisateur.
-                return [
-                    'status' => true,
-                    'id' => $userId
-                ];
-            } catch (PDOException $e) {
-                // Gestion des erreurs liées à la base de données.
-                return [
-                    'status' => false,
-                    'message' => "Erreur Interne lors de l'inscription"
-                ];
-            }
-        } else {
-            // Le mot de passe ne répond pas aux exigences de sécurité.
-            return [
-                'status' => false,
-                'message' => "Le mot de passe renseigné ne correspond pas aux critères requis"
-            ];
-        }
-    } else {
-        // L'adresse e-mail n'est pas valide.
-        return [
-            'status' => false,
-            'message' => "Adresse e-mail incorrecte"
-        ];
-    }
-}
-
-*/
 }

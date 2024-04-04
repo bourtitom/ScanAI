@@ -2,7 +2,7 @@
 
 //definition super globales
 define('HOST', 'localhost');
-define('DATABASE', 'boutiquebasiqueoff');
+define('DATABASE', 'scanai');
 define('USER', 'root');
 define('PASSWORD', 'root');
 
